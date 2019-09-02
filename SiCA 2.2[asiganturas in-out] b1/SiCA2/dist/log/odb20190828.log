@@ -1,0 +1,74 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2019-08-28 14:00:00 #1 store] 
+Database 'C:\wamp64\www\sica\SiCA 2.2[asiganturas in-out] b1\SiCA2\dist\lib\db\database.odb' is opened by 1360@DESKTOP-SDIPMAG
+
+[2019-08-28 14:00:07 #2 type.registry] 
+New type sica.common.objetos.Registro
+
+[2019-08-28 14:00:07 #3 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2019-08-28 14:00:07 #4 type.registry] 
+New type sica.objetos.Huella
+
+[2019-08-28 14:00:07 #5 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2019-08-28 14:00:07 #6 type.registry] 
+New type byte[]
+
+[2019-08-28 14:00:07 #7 type.registry] 
+New type sica.common.usuarios.Usuario
+
+[2019-08-28 14:00:07 #8 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+[2019-08-28 14:00:07 #9 type.registry] 
+New type sica.common.usuarios.Privilegios
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2019-08-28 14:01:24 #1 store] 
+Database 'C:\wamp64\www\sica\SiCA 2.2[asiganturas in-out] b1\SiCA2\dist\lib\db\database.odb' has been recovered (tr. 1-33)
+
+[2019-08-28 14:01:24 #2 store] 
+Database 'C:\wamp64\www\sica\SiCA 2.2[asiganturas in-out] b1\SiCA2\dist\lib\db\database.odb' is opened by 4132@DESKTOP-SDIPMAG
+
+[2019-08-28 14:01:25 #3 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2019-08-28 14:01:25 #4 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2019-08-28 14:01:25 #5 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2019-08-28 14:05:09 #1 store] 
+Database 'C:\wamp64\www\sica\SiCA 2.2[asiganturas in-out] b1\SiCA2\dist\lib\db\database.odb' is opened by 1488@DESKTOP-SDIPMAG
+
+[2019-08-28 14:05:09 #2 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2019-08-28 14:05:09 #3 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2019-08-28 14:05:09 #4 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2019-08-28 14:06:57 #1 store] 
+Database 'C:\wamp64\www\sica\SiCA 2.2[asiganturas in-out] b1\SiCA2\dist\lib\db\database.odb' is opened by 1164@DESKTOP-SDIPMAG
+
+[2019-08-28 14:06:57 #2 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2019-08-28 14:06:57 #3 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2019-08-28 14:06:57 #4 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+

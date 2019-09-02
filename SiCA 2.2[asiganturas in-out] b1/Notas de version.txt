@@ -1,0 +1,35 @@
+Notas de Verisón:
+
+> SiCA 2.2 b1: 6 de febrero de 2017
+	- El A5 incluía el nuevo algoritmo de las huellas pero
+	debido a varias fallas que faltan corregir se opptó por
+	regresar la parte de las huellas al algoritmo clasico.
+
+
+> Sica 2.2 a4: 27 de Octubre 
+	- Respecto al a3: se borraron muchos System.out.println(); por limpieza.
+	- Version beta de Sica 2.2, aun puede tener ligeros bugs, sobre todo en
+	modo EYS, pero ya estuvo funcionando un tiempo en piloto y no hubo detalles grandes.
+	Observación 1: cuando no hay internet se vuelve algo más lento el sica.
+	Observación 2: en modo EYS: puede que en alguna ocasion muy rara llegue a saltar un bug de que quede todo la pantalla en blanco
+	Debido a que se deshabilito temporal el modo EYS se opto por aplicar esta version en los checadores.
+
+> SiCA2_2016-09-20: version 2.2 a2
+	- Ligeros reajustes a la gestion de huellas en ram
+
+
+> SiCA2_2016-03-14:
+	- Modificaciones DRASTICAS:
+	- profesores de tiempo completo checaran
+	- asistencia entrada y salida de asignaturas
+	- usuario "Exit" para cerrar la sica (creo que desde ña version anterior ya estaba impementado)
+	- Registrar desde que checador se registro la asistencia
+	- Agregar en configuraciones el nombre que se le asigna al cehcador
+
+
+
+
+> SiCA2_2016-03-14:
+	- Agregado ventana "Acerca de" en menú "Ayuda"
+	- Esta versión está configurada para localhost (no estoy seguro, comprobar)	
+	- posblemente: Se asignó un FAR (rango de falsos positivos) más pequeño:

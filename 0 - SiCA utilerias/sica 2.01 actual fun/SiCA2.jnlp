@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="SiCA2.jnlp">
+  <information>
+    <title>SiCA2</title>
+    <vendor>Hugo</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="SiCA2.jar" size="628051" download="eager" />
+    <jar href="lib/bridj-0.7-20130703.103049-42.jar" size="908334" download="eager" />
+    <jar href="lib/commons-logging-1.1.jar" size="56994" download="eager" />
+    <jar href="lib/commons-net-3.3.jar" size="280983" download="eager" />
+    <jar href="lib/dpfpenrollment.jar" size="323314" download="eager" />
+    <jar href="lib/dpfpverification.jar" size="33662" download="eager" />
+    <jar href="lib/dpotapi.jar" size="58858" download="eager" />
+    <jar href="lib/dpotjni.jar" size="11465" download="eager" />
+    <jar href="lib/httpclient-4.3.jar" size="631833" download="eager" />
+    <jar href="lib/httpcore-4.3.jar" size="308080" download="eager" />
+    <jar href="lib/jna-4.1.0.jar" size="914597" download="eager" />
+    <jar href="lib/jna-platform-4.1.0.jar" size="1464423" download="eager" />
+    <jar href="lib/log4j-1.2.17.jar" size="489883" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.7-bin.jar" size="709922" download="eager" />
+    <jar href="lib/objectdb.jar" size="1434682" download="eager" />
+    <jar href="lib/sica-common.jar" size="203267" download="eager" />
+    <jar href="lib/sica-core.jar" size="116187" download="eager" />
+    <jar href="lib/slf4j-api-1.7.5.jar" size="26084" download="eager" />
+    <jar href="lib/slf4j-log4j12-1.7.6.jar" size="8869" download="eager" />
+    <jar href="lib/webcam-capture-0.3.10-RC4.jar" size="390937" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="SiCA2" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="sica.Main"  name="SiCA2" >
+    <fx:argument>-debug</fx:argument>
+  </jfx:javafx-desc>
+  <update check="always"/>
+</jnlp>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="874.0" prefWidth="738.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.menuviews.Config">
+  <children>
+    <Label text="Configuraciones" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <styleClass>
+            <String fx:value="font-family-trajan" />
+            <String fx:value="font-size-30" />
+         </styleClass></Label>
+      <ScrollPane cache="true" cacheHint="QUALITY" depthTest="ENABLE" focusTraversable="false" layoutX="14.0" layoutY="58.0" pannable="true" prefHeight="654.0" prefWidth="718.0" style="-fx-padding: 10" styleClass="no-border" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+         <content>
+            <VBox fx:id="configsBox" cache="true" depthTest="ENABLE" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="675.0" prefWidth="676.0" spacing="7.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="10.0" styleClass="font-size-20" text="Conexion">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <GridPane minHeight="-Infinity" prefHeight="140.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="455.0" minWidth="10.0" prefWidth="455.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Base de datos" GridPane.rowIndex="1" />
+                        <Label text="Usuario" GridPane.rowIndex="2" />
+                        <Label text="Host" />
+                        <Label text="Contraseña" GridPane.rowIndex="3" />
+                        <TextField fx:id="host" GridPane.columnIndex="1" />
+                        <TextField fx:id="base" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="usuario" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <Label styleClass="font-size-20" text="Servidor">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin></Label>
+                  <Separator prefWidth="200.0" />
+                  <GridPane fx:id="servidorBox" minHeight="-Infinity" prefHeight="70.0" VBox.vgrow="NEVER">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="449.0" text="Utilizar configuraciones del servidor" GridPane.columnSpan="2" />
+                        <Label text="Servidor Web" GridPane.rowIndex="1" />
+                        <TextField fx:id="servidor" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.0" minWidth="200.0" prefWidth="206.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="592.0" minWidth="200.0" prefWidth="293.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="249.0" minWidth="0.0" prefWidth="153.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <Label styleClass="font-size-20" text="General">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <GridPane fx:id="generalBox" minHeight="-Infinity" prefHeight="282.0" VBox.vgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="565.0" minWidth="10.0" prefWidth="562.0" />
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="212.0" minWidth="0.0" prefWidth="84.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Pantalla completa" />
+                        <Label text="Ignorar peticiones de cerrado ( ALT + F4 )" GridPane.rowIndex="2" />
+                        <Label text="Ignorar salir de pantalla completa ( ESC )" GridPane.rowIndex="3" />
+                        <Label text="Decorado de ventana (Se debe reiniciar)" GridPane.rowIndex="1" />
+                        <Label text="Duración de la pantalla de información del registro" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                        <Label text="Tiempo de espera del servidor" GridPane.rowIndex="7" />
+                        <ChoiceBox fx:id="duracionPantallaRegistro" prefHeight="25.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <ChoiceBox fx:id="esperaServidor" prefHeight="25.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label text="Tiempo de espera para acceder al menu" GridPane.rowIndex="6" />
+                        <Label text="Tiempo de espera para introducir código de usuario" GridPane.rowIndex="4" />
+                        <ChoiceBox fx:id="duracionPantallaBloqueo" prefHeight="25.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ChoiceBox fx:id="esperaCodigo" prefHeight="25.0" prefWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </GridPane>
+                  <Label layoutX="15.0" layoutY="335.0" styleClass="font-size-20" text="Opciones">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator layoutX="15.0" layoutY="357.0" prefWidth="200.0" />
+                  <Hyperlink onAction="#loadDefaults" style="-fx-text-fill: black;" text="Restaurar configuraciones iniciales">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Hyperlink>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>         
+      </ScrollPane>
+  </children>
+</AnchorPane>

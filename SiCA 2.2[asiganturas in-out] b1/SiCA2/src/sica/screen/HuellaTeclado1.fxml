@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="contenedor" alignment="CENTER" focusTraversable="true" prefHeight="595.0" prefWidth="1024.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.HuellaTeclado">
+  <children>
+      <AnchorPane prefHeight="357.0" prefWidth="1024.0" VBox.vgrow="NEVER">
+         <children>
+            <VBox alignment="CENTER" layoutX="97.0" layoutY="20.0" prefHeight="337.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="20.0">
+               <children>
+              <ImageView id="imagenHuella" fx:id="imagen" fitHeight="319.0" fitWidth="377.0" pickOnBounds="true" preserveRatio="true">
+                <effect>
+                  <DropShadow height="31.0" offsetX="7.0" offsetY="7.0" radius="15.0" width="31.0" />
+                </effect>
+                <image>
+                  <Image url="@../images/biometrics.jpg" />
+                </image>                      
+              </ImageView>
+               </children>
+            </VBox>
+        <Separator layoutX="475.0" layoutY="20.0" orientation="VERTICAL" prefHeight="337.0" prefWidth="90.0" AnchorPane.leftAnchor="475.0" AnchorPane.rightAnchor="459.0" AnchorPane.topAnchor="20.0">                
+              </Separator>
+        <VBox alignment="TOP_CENTER" layoutX="573.0" layoutY="20.0" prefHeight="337.0" spacing="5.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="20.0">
+          <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                  <TextField id="" fx:id="codigo" alignment="CENTER" editable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" minHeight="50.0" onAction="#makeRegistroPorCodigo" prefHeight="58.0" prefWidth="263.0" promptText="Introducir código" styleClass="text-field-codigo2, text-field-codigo" VBox.vgrow="ALWAYS">
+                  </TextField>
+                        <Button focusTraversable="false" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#returnKey" prefHeight="55.0" prefWidth="90.0" styleClass="button-number" text="←" translateY="-1.0" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </VBox.margin>
+                  </HBox>
+            <GridPane alignment="CENTER" prefHeight="182.0" prefWidth="294.0" VBox.vgrow="ALWAYS">
+              <children>
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <GridPane.margin>
+                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" fx:id="x2" />
+                  </GridPane.margin>
+                </Button>
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="4" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="7" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="2" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="3" GridPane.columnIndex="2" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="6" GridPane.columnIndex="2" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="9" GridPane.columnIndex="2" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="5" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="1" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="8" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                <Button focusTraversable="false" mnemonicParsing="false" onAction="#addNumber" prefHeight="121.0" prefWidth="117.0" styleClass="button-number" text="0" GridPane.columnIndex="0" GridPane.margin="$x2" GridPane.rowIndex="3" />
+                <Button focusTraversable="false" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#makeRegistroPorCodigo" prefHeight="64.0" prefWidth="232.0" styleClass="button-number" text="Aceptar" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.margin="$x2" GridPane.rowIndex="3" />
+              </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints prefHeight="100.0" />
+                        <RowConstraints prefHeight="100.0" />
+                        <RowConstraints minHeight="61.0" prefHeight="100.0" />
+                        <RowConstraints minHeight="70.0" prefHeight="100.0" />
+                     </rowConstraints>                    
+            </GridPane>
+          </children>
+        </VBox>
+            <VBox alignment="TOP_RIGHT" layoutX="984.0" layoutY="20.0" maxWidth="30.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="20.0">
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="10.0" top="20.0" />
+               </StackPane.margin>
+               <children>
+                  <ImageView fx:id="disconected" fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/LAN%20Unavailable1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="unpluged" fitHeight="40.0" fitWidth="40.0" layoutX="10.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Devices%20alt.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust hue="0.84" />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="updating" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Live%20Sync.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <VBox alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+         <children>
+        <Text fx:id="infoText" strokeType="OUTSIDE" strokeWidth="0.0" text="Esperando código, deberá ser visible su rostro para ser efectivo" textAlignment="CENTER">
+               <styleClass>
+                  <String fx:value="font-size-28" />
+                  <String fx:value="font-family-heavy" />
+               </styleClass>
+        </Text>
+            <Hyperlink onAction="#goToMenu" text="Click aquí para consultar horarios y/o faltas" underline="true">
+               <styleClass>
+                  <String fx:value="font-size-28" />
+                  <String fx:value="font-family-heavy" />
+               </styleClass>
+            </Hyperlink>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </VBox>
+    <StackPane id="StackPane" alignment="BOTTOM_CENTER" minHeight="80.0" prefHeight="95.0">
+      <children>
+        <VBox id="VBox" alignment="BOTTOM_CENTER" minHeight="88.0" prefHeight="88.0" prefWidth="1024.0" spacing="5.0">
+          <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../images/footer.png" />
+              </image>              
+            </ImageView>
+          </children>
+        </VBox>
+        <ProgressBar id="progresoTimer" fx:id="progress" minHeight="15.0" prefHeight="15.0" prefWidth="1024.0" progress="0.0" visible="false" />
+      </children>
+    </StackPane>
+  </children>  
+  <stylesheets>
+    <URL value="@Style.css" />
+  </stylesheets>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Getting server updates</h1>
+<div id="result"></div>
+
+<script>
+
+if(typeof(EventSource)!=="undefined") {
+
+  var lastUpdate="0000-00-00 00:00:00";
+
+  var source=new EventSource("notifUpdate.php");
+
+  source.onmessage=function(event)  {
+
+    if (event.data != lastUpdate){
+
+      lastUpdate = event.data;
+      document.getElementById("result").innerHTML += event.data + "<br>";
+      app.executeUpdate();
+
+    }
+
+  };
+
+} 
+
+</script>
+
+</body>
+</html>

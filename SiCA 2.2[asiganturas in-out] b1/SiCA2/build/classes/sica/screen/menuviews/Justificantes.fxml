@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.menuviews.Justificantes">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" text="Ultimos justificantes enviados" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <styleClass>
+            <String fx:value="font-family-trajan" />
+            <String fx:value="font-size-30" />
+         </styleClass>
+      </Label>
+      <TableView fx:id="tabla" focusTraversable="false" layoutX="10.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+        <columns>
+          <TableColumn fx:id="fecha" prefWidth="75.0" text="Fecha creación" />
+          <TableColumn fx:id="folio" prefWidth="75.0" text="Folio" />
+            <TableColumn fx:id="tipo" prefWidth="75.0" text="Tipo" />
+            <TableColumn fx:id="justif" prefWidth="75.0" text="Justificante" />
+            <TableColumn fx:id="estatus" prefWidth="75.0" text="Estatus" />
+        </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="378.0" styleClass="font-size-20" text="Seleccionar justificante para consultar los detalles del mismo" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+   </children>
+</AnchorPane>

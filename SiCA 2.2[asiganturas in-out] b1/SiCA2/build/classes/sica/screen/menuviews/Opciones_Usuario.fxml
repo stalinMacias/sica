@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="494.0" prefWidth="795.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.menuviews.Opciones">
+   <children>
+      <Label layoutX="10.0" layoutY="10.0" text="Menu" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
+         <styleClass>
+            <String fx:value="font-family-trajan" />
+            <String fx:value="font-size-30" />
+         </styleClass></Label>
+      <VBox layoutX="10.0" layoutY="60.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <GridPane layoutX="10.0" layoutY="70.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="400.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="376.0" minWidth="10.0" prefWidth="370.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="120.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="120.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                 <HBox id="HBox1" alignment="BOTTOM_LEFT" onMouseClicked="#goToHorario" spacing="5.0">
+                  <children>
+                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="clickeable">
+                      <image>
+                        <Image url="@../../images/Clock.png" />
+                      </image>
+                    </ImageView>
+                    <Hyperlink focusTraversable="false" onAction="#goToHorario" styleClass="font-size-20" text="Consultar horario" wrapText="true">
+                      <HBox.margin>
+                        <Insets top="50.0" />
+                      </HBox.margin>
+                    </Hyperlink>
+                  </children>
+                </HBox>
+                <HBox id="HBox3" alignment="BOTTOM_LEFT" onMouseClicked="#goToFaltas" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <children>
+                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="clickeable">
+                      <effect>
+                        <ColorAdjust hue="0.48091603053435117" />
+                      </effect>
+                      <image>
+                        <Image url="@../../images/Calendar.png" />
+                      </image>
+                    </ImageView>
+                    <Hyperlink focusTraversable="false" onAction="#goToFaltas" styleClass="font-size-20" text="Consulta y justificación de faltas a asignaturas" wrapText="true" HBox.margin="$x2" />
+                  </children>
+                </HBox>
+                <HBox id="HBox2" alignment="BOTTOM_LEFT" onMouseClicked="#goToAsistencias" spacing="5.0" GridPane.rowIndex="1">
+                  <children>
+                    <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="clickeable">
+                      <image>
+                        <Image url="@../../images/Calendar.png" />
+                      </image>
+                    </ImageView>
+                    <Hyperlink focusTraversable="false" onAction="#goToAsistencias" styleClass="font-size-20" text="Consulta y justificación de asistencia a jornada laboral" wrapText="true" HBox.margin="$x2" />
+                  </children>
+                </HBox>
+                  <HBox id="HBox3" alignment="BOTTOM_LEFT" layoutX="373.0" layoutY="11.0" onMouseClicked="#goToHome" spacing="5.0" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="clickeable">
+                           <image>
+                              <Image url="@../../images/return.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink focusTraversable="false" onAction="#goToHome" styleClass="font-size-20" text="Salir" wrapText="true" HBox.margin="$x2" />
+                     </children>
+                  </HBox>
+                  <HBox id="HBox3" alignment="BOTTOM_LEFT" layoutX="427.0" layoutY="326.0" onMouseClicked="#goToJustificantes" spacing="5.0" GridPane.columnIndex="1">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="clickeable">
+                           <image>
+                              <Image url="@../../images/justificantes.png" />
+                           </image>
+                        </ImageView>
+                        <Hyperlink focusTraversable="false" onAction="#goToJustificantes" styleClass="font-size-20" text="Consultar últimos justificantes enviados" wrapText="true" HBox.margin="$x2" />
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

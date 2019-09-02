@@ -1,0 +1,190 @@
+.root { 
+    -fx-background-image:  url('../images/Fondo2lados.jpg');
+    -fx-background-color: white;
+    -fx-background-position: right top;
+    -fx-background-repeat: repeat-x;
+    -fx-background-size: 160 96;
+    -fx-font-family: AvenirLTStd-Light; 
+    -fx-font-size: 14;
+}
+.main-root{
+    -fx-background-image: url('../images/Fondo2.jpg');
+    -fx-background-position: center top;    
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1024;
+}
+.unlockslider .thumb {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/slider.png");   
+    -fx-background-size: 65, 30 ;
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    -fx-padding:30;
+}
+.unlockslider .track {
+    -fx-background-color:
+        -fx-shadow-highlight-color,
+        derive(-fx-color,-22%),
+        linear-gradient(to bottom, derive(-fx-color,-15.5%), derive(-fx-color,34%) 30%, derive(-fx-color,68%));
+    -fx-background-insets: 1 0 -1 0;/*, 0, 1;*/
+    -fx-background-radius: 35, 10;
+    -fx-padding: 25;
+    
+}
+.font-family-heavy{
+    -fx-font-family: AvenirLTStd-Heavy; 
+}
+
+.font-family-trajan{    
+     -fx-font-family: TrajanPro-Regular; 
+}
+.font-size-30{
+    -fx-font-size: 30;    
+}
+.font-size-28{
+    -fx-font-size: 28;    
+}
+.font-size-20{
+    -fx-font-size: 20;    
+}
+.font-size-16{
+    -fx-font-size: 16;    
+}
+
+.button {
+    -fx-padding: 0 10 0 10;
+    -fx-border-style:none; 
+    -fx-background-radius: 0;
+    -fx-background-color: #cccccc;    
+    -fx-text-fill: black;
+}
+
+.button:hover{
+    -fx-background-color: #d8d8d8;
+}
+ 
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: black;
+  -fx-text-fill: white;
+}
+ 
+.button:focused {
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-style: segments(1,1);
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;   
+}
+ 
+.button:disabled, .button:default:disabled {
+    -fx-opacity: 0.4;
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #212121;
+}
+ 
+.button:default {
+    -fx-background-color: #008287;
+    -fx-text-fill: #ffffff;
+}
+ 
+.button:default:hover{
+    -fx-background-color: #219297;
+}
+.button-number {
+/*    .button; */
+    -fx-padding: 0 10 5 10;
+    -fx-font-size: 30;    
+}
+
+.text-field {
+    -fx-font-size: 16;
+}
+
+.text-field-codigo {
+    -fx-font-size: 30;
+}
+
+.image-button:hover{
+     -fx-cursor: hand;
+}
+
+.image-button:disabled{
+     -fx-cursor: default;
+}
+.hyperlink{
+    -fx-text-fill: black;
+}
+.hyperlink:visited {
+    -fx-text-fill: black;
+}
+.no-border{
+     -fx-focus-color: -fx-text-box-border;
+     -fx-faint-focus-color: transparent;
+}
+.clickeable{
+    -fx-cursor:hand;
+}
+/******************************************************************************* 
+ *                                                                             * 
+ * TableView                                                                   * 
+ *                                                                             * 
+ ******************************************************************************/
+.table-cell {      
+    -fx-padding: 0.8em 0em 0.5em 0.3em; 
+    -fx-border-color: transparent -fx-box-border transparent transparent;   
+    -fx-text-fill: #212121; 
+} 
+.table-view { 
+    -fx-table-header-border-color: #959595; 
+    -fx-table-cell-border-color: -fx-box-border; 
+} 
+.table-view:focused { 
+    -fx-background-color: -fx-box-border,-fx-box-border, white; 
+} 
+.table-row-cell {     
+    -fx-background-color: white; 
+} 
+.table-row-cell:odd:filled, .table-row-cell:odd:filled:hover, .table-row-cell:odd:filled:selected {
+    -fx-background-color: rgb(245,245,245); 
+}
+.table-view .column-header-background { 
+    -fx-background-color: white; 
+} 
+  
+.table-view .column-header, .table-view .filler { 
+    -fx-background-color: white;     
+    -fx-font-family: AvenirLTStd-Heavy; 
+    -fx-size: 35; 
+    -fx-border-color: -fx-box-border; 
+    -fx-border-insets: -1 0 0 -1; 
+    -fx-padding: 0 5 0 0; 
+} 
+.table-view .show-hide-columns-button { 
+    -fx-background-color: white; 
+    -fx-border-color: -fx-box-border; 
+    -fx-border-insets: -1 -1 0 0; 
+} 
+.table-view .column-drag-header {     
+    -fx-background-color: rgb(45,137,239); 
+    -fx-opacity: 0.6; 
+} 
+.table-view .column-resize-line {   
+    -fx-background-color: rgb(45,137,239); 
+} 
+.table-view .column-overlay { 
+    -fx-background-color: darkgray; 
+    -fx-opacity: 0.2; 
+} 
+.table-view .arrow { 
+    -fx-padding: 0.2em; 
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z"; 
+} 
+
+/******************************************************************************* 
+ *                                                                             * 
+ * ListView                                                                    * 
+ *                                                                             * 
+ ******************************************************************************/
+
+.list-view .list-cell:empty{
+    -fx-background-color: transparent;
+}

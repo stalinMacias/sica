@@ -1,0 +1,14 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2016-05-05 11:39:55 #1 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is opened by 2412@Admin-PC
+
+[2016-05-05 11:39:55 #2 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2016-05-05 11:39:55 #3 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2016-05-05 11:39:55 #4 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+

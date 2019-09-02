@@ -1,0 +1,17 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2016-04-11 18:24:12 #1 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is opened by 2348@Admin-PC
+
+[2016-04-11 18:24:12 #2 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2016-04-11 18:24:12 #3 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2016-04-11 18:24:12 #4 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+[2016-04-21 15:17:08 #5 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is closed by 2348@Admin-PC
+

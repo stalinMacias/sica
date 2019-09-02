@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="root" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.Principal">
+   <children>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="620.0" styleClass="main-root" stylesheets="@Style.css">
+         <children>
+          <VBox id="container" fx:id="topContainer" alignment="CENTER_RIGHT" maxHeight="96.0" minHeight="96.0" prefHeight="96.0" prefWidth="1020.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+              <Label fx:id="titulo" text="Sistema de Control de Asistencias" textFill="WHITE">
+                <font>
+                  <Font size="20.0" />
+                </font>
+                <VBox.margin>
+                  <Insets />
+                </VBox.margin>
+                     <styleClass>
+                        <String fx:value="font-size-28" />
+                        <String fx:value="font-family-trajan" />
+                     </styleClass>
+              </Label>
+              <Label fx:id="fechahora" text="Martes 02 de Julio de 2014  11:28" textFill="WHITE">
+                <font>
+                  <Font size="25.0" fx:id="x1" />
+                </font>
+                <VBox.margin>
+                  <Insets />
+                </VBox.margin>
+                     <styleClass>
+                        <String fx:value="font-size-20" />
+                        <String fx:value="font-family-heavy" />
+                     </styleClass>
+              </Label>
+            </children>
+               <padding>
+                  <Insets bottom="5.0" right="15.0" />
+               </padding>
+          </VBox>
+        <StackPane fx:id="container" alignment="BOTTOM_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="96.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

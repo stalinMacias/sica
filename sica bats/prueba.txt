@@ -1,0 +1,2 @@
+lo que escribi en el programador de tareas fue:
+C:\WINDOWS\system32\cmd.exe "D:\web\www\sica\sica bats\disparador_correofaltaclase.bat"

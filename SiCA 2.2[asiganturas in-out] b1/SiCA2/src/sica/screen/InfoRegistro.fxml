@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="457.0" prefWidth="1024.0" spacing="15.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.InfoRegistro">
+   <children>
+      <HBox alignment="CENTER" prefHeight="290.0" prefWidth="984.0" spacing="20.0" VBox.vgrow="NEVER">
+         <children>
+            <VBox id="VBox" alignment="TOP_CENTER" prefHeight="340.0" prefWidth="222.0" spacing="3.0" style="-fx-background-color: #dfdfdf;" HBox.hgrow="NEVER">
+               <children>
+                  <ImageView fx:id="fotoUser" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+                     <image>
+                        <Image url="@../images/error.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nombreTxt" alignment="CENTER" maxHeight="51.0" maxWidth="1.7976931348623157E308" minHeight="50.0" prefHeight="17.0" text="NOMBRE NOMBRE APELLIDO1 APELLIDO2" textAlignment="CENTER" wrapText="true">
+                     <styleClass>
+                        <String fx:value="font-family-heavy" />
+                        <String fx:value="font-size-16" />
+                     </styleClass>
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin></Label>
+               </children>
+               <HBox.margin>
+                  <Insets fx:id="x4" />
+               </HBox.margin>
+            </VBox>
+            <VBox id="infoPanel" alignment="TOP_CENTER" prefHeight="270.0" prefWidth="547.0" spacing="5.0" style="-fx-background-color: #dfdfdf;" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="infoReg" text="Detalles de registro:">
+                     <styleClass>
+                        <String fx:value="font-family-heavy" />
+                        <String fx:value="font-size-30" />
+                     </styleClass>
+                  </Label>
+                  <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Text id="nombreTxt" fx:id="info" font="$x1" strokeType="OUTSIDE" strokeWidth="0.0" text="info del registro" textAlignment="CENTER" wrappingWidth="670.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <styleClass>
+                              <String fx:value="label" />
+                              <String fx:value="font-size-28" />
+                           </styleClass>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <HBox id="HBox" alignment="CENTER" spacing="20.0" VBox.margin="$x4">
+                     <children>
+                        <Text id="nombreTxt" fx:id="horaTxt" font="$x1" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora de entrada: --:--:--">
+                           <styleClass>
+                              <String fx:value="font-family-heavy" />
+                              <String fx:value="font-size-28" />
+                           </styleClass></Text>
+                        <ImageView fx:id="entradaOK" fitHeight="30.17578125" fitWidth="30.17578125" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image preserveRatio="false" smooth="false" url="@../../../../SiCA/src/sica/images/accept.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox id="HBox" alignment="CENTER" spacing="20.0">
+                     <children>
+                        <Text id="nombreTxt" fx:id="horaSalTxt" font="$x1" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora de salida: --:--:--">
+                           <styleClass>
+                              <String fx:value="font-family-heavy" />
+                              <String fx:value="font-size-28" />
+                           </styleClass></Text>
+                        <ImageView fx:id="salidaOK" fitHeight="30.17578125" fitWidth="30.17578125" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image preserveRatio="false" smooth="false" url="@../../../../SiCA/src/sica/images/accept.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </VBox.margin>
+      </HBox>
+      <StackPane id="StackPane" alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" translateX="0.0" translateY="27.0">
+               <image>
+                  <Image url="@../images/footer.png" />
+               </image>
+            </ImageView>
+            <HBox id="HBox" fx:id="messagePanel" alignment="CENTER" prefHeight="100.447265625" prefWidth="1024.0" spacing="5.0" style="-fx-background-color: DARKGRAY;" visible="false">
+               <children>
+                  <Text fx:id="messageTxt" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="label2" text="Este es un mensaje de prueba" textAlignment="CENTER" wrappingWidth="958.0">
+                     <fill>
+                        <Color blue="0.000" green="0.000" red="0.800" fx:id="x3" />
+                     </fill>
+                     <font>
+                        <Font name="System Bold" size="30.0" fx:id="x2" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" />
+         </VBox.margin>
+      </StackPane>
+      <ProgressBar fx:id="progress" minHeight="15.0" prefHeight="15.0" prefWidth="1282.0" progress="0.0" />
+   </children>
+   <padding>
+      <Insets top="30.0" />
+   </padding>
+</VBox>

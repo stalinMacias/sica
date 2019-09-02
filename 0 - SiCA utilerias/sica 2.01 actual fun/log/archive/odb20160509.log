@@ -1,0 +1,34 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2016-05-09 00:59:25 #1 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' has been recovered (tr. 16845-16854)
+
+[2016-05-09 00:59:25 #2 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is opened by 2628@Admin-PC
+
+[2016-05-09 00:59:25 #3 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2016-05-09 00:59:25 #4 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2016-05-09 00:59:25 #5 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+------------------------------------------------------------------------------------------------------------------------
+
+[2016-05-09 15:54:13 #1 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' has been recovered (tr. 16855-16856)
+
+[2016-05-09 15:54:13 #2 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is opened by 2556@Admin-PC
+
+[2016-05-09 15:54:13 #3 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2016-05-09 15:54:13 #4 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2016-05-09 15:54:13 #5 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+

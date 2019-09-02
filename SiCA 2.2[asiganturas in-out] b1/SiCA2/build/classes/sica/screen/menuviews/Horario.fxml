@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="616.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.menuviews.Horario">
+  <children>
+    <Label prefHeight="40.0" text="Horarios" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <styleClass>
+            <String fx:value="font-family-trajan" />
+            <String fx:value="font-size-30" />
+         </styleClass></Label>
+      <StackPane layoutX="10.0" layoutY="110.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0">
+         <children>
+      <TableView fx:id="jornada" focusTraversable="false" layoutY="114.0" prefHeight="381.0" prefWidth="596.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="110.0">
+        <columns>
+          <TableColumn fx:id="diaJCol" maxWidth="5000.0" minWidth="10.0" prefWidth="44.0" text="Día" />
+          <TableColumn fx:id="entradaJCol" maxWidth="5000.0" minWidth="10.0" prefWidth="72.0" text="Entrada" />
+          <TableColumn fx:id="salidaJCol" maxWidth="5000.0" minWidth="10.0" prefWidth="50.0" text="Salida" />
+        </columns>
+      </TableView>
+            <TableView fx:id="asignaturas" focusTraversable="false" layoutX="10.0" layoutY="10.0" prefHeight="381.0" prefWidth="596.0" tableMenuButtonVisible="false">
+               <columns>
+                  <TableColumn fx:id="crnCol" maxWidth="5000.0" minWidth="10.0" prefWidth="44.0" text="Crn" />
+                  <TableColumn fx:id="materiaCol" maxWidth="5000.0" minWidth="10.0" prefWidth="72.0" text="Materia" />
+                  <TableColumn fx:id="diaCol" maxWidth="5000.0" minWidth="10.0" prefWidth="50.0" text="Dia" />
+                  <TableColumn fx:id="horarioCol" maxWidth="5000.0" minWidth="10.0" prefWidth="53.0" text="Horario" />
+                  <TableColumn fx:id="bloqueCol" maxWidth="5000.0" minWidth="10.0" prefWidth="30.0" text="4x4" />
+                  <TableColumn fx:id="aulaCol" maxWidth="5000.0" minWidth="10.0" prefWidth="32.0" text="Aula" />
+               </columns>
+            </TableView>
+         </children>
+      </StackPane>
+      <HBox layoutX="116.0" layoutY="50.0" prefHeight="40.0" prefWidth="596.0" spacing="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <ToggleButton fx:id="asignaturasBtn" layoutX="116.0" layoutY="50.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="250.0" selected="true" text="Asignaturas" HBox.hgrow="ALWAYS">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tg1" />
+               </toggleGroup>
+               <styleClass>
+                  <String fx:value="font-size-20" />
+                  <String fx:value="button" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton fx:id="jornadaBtn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="250.0" text="Jornada laboral" toggleGroup="$tg1" HBox.hgrow="ALWAYS">
+               <styleClass>
+                  <String fx:value="font-size-20" />
+                  <String fx:value="button" />
+               </styleClass></ToggleButton>
+         </children>
+      </HBox>
+  </children>
+</AnchorPane>

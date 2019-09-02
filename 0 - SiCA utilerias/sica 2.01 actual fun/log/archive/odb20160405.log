@@ -1,0 +1,20 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2016-04-05 10:30:09 #1 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' has been recovered (tr. 14354-14387)
+
+[2016-04-05 10:30:09 #2 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is opened by 2424@Admin-PC
+
+[2016-04-05 10:30:09 #3 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2016-04-05 10:30:09 #4 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2016-04-05 10:30:09 #5 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+[2016-04-07 17:41:40 #6 store] 
+Database 'C:\SICA2.01\lib\db\database.odb' is closed by 2424@Admin-PC
+

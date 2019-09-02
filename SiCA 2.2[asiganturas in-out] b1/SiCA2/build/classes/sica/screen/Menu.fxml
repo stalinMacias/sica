@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="544.0" prefWidth="1024.0" style="&#10;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sica.screen.Menu">
+  <children>
+    <VBox alignment="TOP_CENTER" maxWidth="185.0" minWidth="185.0" prefHeight="544.0" prefWidth="185.0" spacing="9.0" style="-fx-background-color: rgb(230,230,230)" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <HBox id="HBox" fx:id="atrasBtn" alignment="CENTER_LEFT" onMouseClicked="#goBack" prefHeight="45.0" spacing="10.0">
+          <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" styleClass="image-button">
+              <image>
+                <Image url="@../images/back.png" />
+              </image>
+            </ImageView>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="atrasInfo" prefHeight="45.0" prefWidth="307.0" text="Salir">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="font-family-trajan" />
+                              <String fx:value="font-size-30" />
+                           </styleClass>
+                        </Label>
+                     </children>
+                  </VBox>
+          </children>
+               <VBox.margin>
+                  <Insets top="7.0" />
+               </VBox.margin>
+        </HBox>
+        <ImageView fx:id="imagen" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../images/error.jpg" />
+          </image>
+        </ImageView>
+        <Label fx:id="infoUsr" alignment="TOP_CENTER" prefHeight="203.0" styleClass="font-size-16" text="NOMBRE APELLIDO APELLIDO" wrapText="true" VBox.vgrow="ALWAYS">
+          <font>
+            <Font name="System Bold" size="12.0" />
+          </font>
+        </Label>
+      </children>
+         <padding>
+            <Insets left="15.0" right="15.0" top="2.0" />
+         </padding>
+    </VBox>
+    <StackPane id="StackPane" fx:id="container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+  </children>
+</AnchorPane>
