@@ -1,0 +1,29 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2019-09-06 08:49:38 #1 store] 
+Database 'C:\wamp64\www\sica\SiCA 2.2[asiganturas in-out] b1\SiCA2\dist\run1722073553\lib\db\database.odb' is opened by 4192@DESKTOP-SDIPMAG
+
+[2019-09-06 08:49:53 #2 type.registry] 
+New type sica.common.objetos.Registro
+
+[2019-09-06 08:49:53 #3 type] 
+Type sica.common.objetos.Registro is not enhanced.
+
+[2019-09-06 08:49:53 #4 type.registry] 
+New type sica.objetos.Huella
+
+[2019-09-06 08:49:53 #5 type] 
+Type sica.objetos.Huella is not enhanced.
+
+[2019-09-06 08:49:53 #6 type.registry] 
+New type byte[]
+
+[2019-09-06 08:49:53 #7 type.registry] 
+New type sica.common.usuarios.Usuario
+
+[2019-09-06 08:49:53 #8 type] 
+Type sica.common.usuarios.Usuario is not enhanced.
+
+[2019-09-06 08:49:53 #9 type.registry] 
+New type sica.common.usuarios.Privilegios
+

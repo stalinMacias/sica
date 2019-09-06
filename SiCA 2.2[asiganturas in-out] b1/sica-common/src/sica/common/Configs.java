@@ -2,7 +2,7 @@ package sica.common;
 
 public class Configs{
     
-    public static ConfigProperty<String> SERVER = new ConfigProperty<>("hostserver"," http://127.0.0.1/sica");  //148.202.89.3  http://localhost/sica
+    public static ConfigProperty<String> SERVER = new ConfigProperty<>("hostserver", "http://127.0.0.1/sica");  //148.202.89.3  http://localhost/sica
     
     public static final long TOLERANCIA_CLASE = 20*60*1000; //millis
     public static final long TOLERANCIA_ADMINISTRATIVOS= 40*60*1000; //millis

@@ -64,7 +64,7 @@ public class Menu extends Screen implements Initializable{
         usuario = u;        
         
         if (usuario!=null){                         
-            imagen.setImage(new Image(Configs.SERVER_FOTOS()+usuario.getCodigo()+".jpg"));
+            //imagen.setImage(new Image(Configs.SERVER_FOTOS()+usuario.getCodigo()+".jpg"));
             if (imagen.getImage().isError()){
                   imagen.setImage(new Image(Main.class.getResource("images/error.jpg").toExternalForm()));
             }

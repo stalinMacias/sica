@@ -1,10 +1,12 @@
 <?php
 
 // host donde se hospeda la pagina
-$host =  "http://148.202.119.37/sica";  //"http://localhost/checador"; // //http://www.cuvalles.udg.mx/sica";
+//$host =  "http://148.202.119.37/sica";  //"http://localhost/checador"; // //http://www.cuvalles.udg.mx/sica";
+$host = "http://127.0.0.1/sica"; //Dirección para que trabaje en local!
 
 // detalles de la conexion a mysql
-$dbhost =   			"148.202.119.37"; //'localhost';
+//$dbhost =   			"148.202.119.37"; //'localhost';
+$dbhost = "127.0.0.1";  //Conexión Local
 $user =     				"frank"; //'frank';
 $password = 				"frankvalles65"; //'frankvalles65';
 
@@ -18,7 +20,8 @@ $dir = "C:\wamp64\www\sica";
 
 
 //detalles para el envio de correo electronico
-define("MAIL_HOST","148.202.119.16");
+//define("MAIL_HOST","148.202.119.16");
+define("MAIL_HOST","127.0.0.1");  //Dirección local
 define("MAIL_PORT",25);
 define("MAIL_USERNAME","sicacusur@cusur.udg.mx");
 define("MAIL_PASSWORD","hola123"); //*/

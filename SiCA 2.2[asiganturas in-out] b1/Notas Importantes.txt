@@ -1,0 +1,29 @@
+03/09/2019:
+	El modulo Administración de Usuarios del sistema trabaja con la clase llamada AdminUsuario.java, la cual se encuentra en la ruta:
+	Sica2 -> Source Packages -> sica.screen.menuviews -> AdminUsuario.java
+	
+	* En esta clase al cargar por primera vez tendrá activada la captura de huellas, una vez que se ingrese un codigo
+	  de un usuario que se encuentre en la base de datos creará un objecto en el cual se almacenarán todos los datos de dicho usuario...
+	  Algunos de los datos del usuario solamente son accesibles mediante los metodos .getDato() (Revisar el objecto y sus metodos)	
+	  La busqueda se realiza cuando se presiona enter o cuando el campo codigo pierde el focus....
+	  
+	* ......
+
+	 *** Listo: Queda pendiente seguir revisando el código para poder comenzar a trabajar con el metodo de "Guardar - Actualizar"
+
+************************************************************************************************************
+
+
+************************************************************************************************************
+05/09/2019:
+	- Leer la clase Autenticator.java que esta en la ruta:
+	sica-common -> sica.common -> Autenticator.java
+        Verificar que la propiedad currentUser sea asignada correctamente, ya que actualmente si se solicita el current user
+        con getCurrentUser() retorna un null...
+
+************************************************************************************************************
+
+
+************************************************************************************************************
+06/09/2019:
+	- 
