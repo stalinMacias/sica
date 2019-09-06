@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
+import javafx.fxml.FXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +70,7 @@ public final class ScannerCapturator extends Scanner {
                             log.info("Guardando huella");
                             ConnectionServer.guardarHuella(user, new ByteArrayInputStream(serialize), serialize.length);                            
                             onSuccess.handle(new Event(EventType.ROOT));                            
-                            reclutador.clear();                            
+                            reclutador.clear();
                             break;
 
                         case TEMPLATE_STATUS_FAILED: // informe de fallas y reiniciar la captura de huellas

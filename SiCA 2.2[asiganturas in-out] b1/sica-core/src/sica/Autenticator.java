@@ -18,10 +18,15 @@ import sica.common.usuarios.Usuario;
 
 public class Autenticator extends sica.common.Autenticator {
    
-    private final static Logger log = LoggerFactory.getLogger(Autenticator.class);    
+    private final static Logger log = LoggerFactory.getLogger(Autenticator.class);   
+    
         
-    public static Usuario autenticateUserLocalDB(String user, String pass){       
+    public static Usuario autenticateUserLocalDB(String user, String pass){ 
+        
         Usuario usuario = LocalDB.getUsuario(user);
+            
+        //Hasta este punto el codigo ya esta funcionando ---> 02/09/2019
+        
         if (usuario != null && siiauLogin(user, pass)){
             log.info("Usuario autentificado");
             return usuario;

@@ -1,0 +1,44 @@
+************************************************************************************************************
+02/09/2019:
+	- Se comento la línea 67 del Archivo Menu.java ... 
+	  Ruta del archivo: Sica2 -> Source Packages -> sica.screen -> Menu.java
+
+	- Se modifico en la base de datos la dirección del hostserver que se encuentra en la tabla de configuraciones...
+ 	  Con esta dirección se realiza la conexión al SIIAU...
+	  El nuevo valor es: http://127.0.0.1/sica
+	  El valor original puede ser consultado en la base de datos del servidor original....
+
+************************************************************************************************************
+
+
+************************************************************************************************************
+05/09/2019:
+	- Se modifico el método limpiar de la clase llamada AdminUsuario.java, la cual se encuentra en la ruta:
+	  Sica2 -> Source Packages -> sica.screen.menuviews -> AdminUsuario.java
+          * En la versión prevía, este método solamente realizaba la limpieza del campo "Código", y ahora realiza
+ 	    la limpieza de todos los campos, así como el reseteo del objeto usuario!
+
+	- Se esta tarbajando en el método Guardar - Actualizar de la misma clase que la moficiación anterior....
+
+************************************************************************************************************
+
+
+************************************************************************************************************
+06/09/2019:
+	- En el archivo Autenticator.java que esta en la ruta:
+	  	sica-common -> sica.common -> Autenticator.java
+	  * Se le agrego una llamada al metodo Autenticate que se encuentra en la misma clase, esto con el fin de inicializar
+	  la variable currentUser, la cual se utiliza para insertar en la tabla log todas aquellas modificaciones que han sido realizadas...
+          
+          * En el metodo Autenticate se le quitó la llamada al metodo SIIAULogin() y solamente se dejarón las condiciones para asignar la propiedad currentUser
+
+	- En el archivo AdminUsuario.java que esta en la ruta:
+		Sica2 -> sica.screen.menuviews -> AdminUsuario.java
+	 * En el metodo guardarActualizar() cuando se tratá de crear un nuevo usuario, se agrego el método para sincronizar la base de datos local con la del servidor!
+
+
+
+************************************************************************************************************
+
+
+************************************************************************************************************

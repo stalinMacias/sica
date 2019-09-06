@@ -178,12 +178,11 @@ public class DBQueries {
     }
     
     public static boolean addCorreoUsuario(String usr, String correo){
-        log("Añade correo: "+correo+", al usuario "+usr);
-         
         String query  = String.format(
                 "CALL add_correo_usuario('%s','%s')",
                 usr,
                 correo);
+        log("Añade correo: "+correo+", al usuario "+usr);
         return new PHPExecuter(query).getResponse();
     }
     
@@ -316,10 +315,6 @@ public class DBQueries {
     
     public static boolean insertUsuario(String cod, String nom, int tipo, 
             int status, String depto, String telefono, String coment){
-        
-        log("Crea nuevo usuario: "+cod+", "+nom);
-        
-        
         String query  = String.format(
             "INSERT INTO usuarios (usuario, nombre, tipo, status, departamento,"
             + "telefono,comentario) VALUES ('%s','%s','%d','%d','%s','%s','%s')",
@@ -330,16 +325,14 @@ public class DBQueries {
             depto,
             telefono,
             coment);
-
+        log("Crea nuevo usuario - Codigo: "+cod+", Nombre: "+nom);
         return new PHPExecuter(query).getResponse();        
         
     }
     
     public static boolean updateUsuario(String cod, String nom, int tipo, int status, 
             String depto, String telefono, String coment){
-     
-        log("Actualiza los datos del usuario: "+cod);
-        
+        System.out.println("Ingresando al metodo updateUsuario");
         String query  = String.format(
             "UPDATE usuarios SET nombre = '%s', tipo = '%d', status = '%d', "
             + "departamento = '%s', telefono = '%s', comentario = '%s' "
@@ -351,7 +344,8 @@ public class DBQueries {
             telefono,
             coment,
             cod);
-
+        
+        log("Actualiza los datos del usuario: "+cod);
         return new PHPExecuter(query).getResponse();        
       
     }
@@ -702,7 +696,10 @@ public class DBQueries {
     }    */
     
     
-    public static void log (String desc){    
+    public static void log (String desc){ 
+        //System.out.println("Ingesando al metodo log con este dato de entrada: " + desc);
+        //System.out.println("Current User's Code: "+Autenticator.getCurrentUser().getCodigo());
+
         String query  = String.format(
                 "INSERT INTO log (usuario,fecha,descripcion) VALUES ('%s',NOW(),'%s')",
                 Autenticator.getCurrentUser().getCodigo(),
@@ -710,13 +707,11 @@ public class DBQueries {
 
         boolean respuesta = new PHPExecuter(query).getResponse();    
         if(respuesta){
-            //System.out.println("Resultado: TRUE!");
+            System.out.println("Resultado: TRUE!");
         }else{
             System.out.println("Problema ejecutando el Query: " + query);
             System.out.println("Resultado: FALSE!!!");
-        }
-        
-        
+        } 
     }
     
 
