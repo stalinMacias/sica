@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="990.0" prefWidth="1260.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.asistencia.PorPeriodoController">
+  <children>
+    <SplitPane fx:id="split" dividerPositions="0.3269230769230769" focusTraversable="true" prefHeight="610.0" prefWidth="1280.0" style="-fx-box-border: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+      <items>
+        <VBox id="VBox" alignment="TOP_CENTER" maxWidth="500.0" minWidth="400.0" prefWidth="400.0" spacing="5.0" style="-fx-box-border: ladder(&#10;-fx-color, black 20%, derive(-fx-color,-30%) 30% );">
+          <children>
+            <HBox alignment="CENTER_LEFT" minHeight="27.0" prefHeight="27.0" prefWidth="1258.0" spacing="15.0">
+              <children>
+                <Label prefHeight="17.0" prefWidth="128.0" text="Mostrar usuarios" />
+                <ComboBox id="tipoUsuarios" fx:id="tipoUsuarios2" maxHeight="40.0" minHeight="19.0" prefHeight="19.0" prefWidth="301.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+            </HBox>
+            <TableView fx:id="tablaUsuarios" prefHeight="564.0" prefWidth="524.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="codigoColUs" minWidth="100.0" prefWidth="120.0" text="Codigo" />
+                <TableColumn fx:id="nombreColUs" minWidth="200.0" prefWidth="383.0" text="Nombre" />
+              </columns>
+              <stylesheets>
+                <URL value="@../../tableTheme.css" />
+              </stylesheets>
+            </TableView>
+          </children>
+          <padding>
+            <Insets top="5.0" />
+          </padding>
+        </VBox>
+        <VBox id="VBox" fx:id="calendarios" alignment="TOP_CENTER" prefHeight="604.0" prefWidth="749.0" spacing="10.0" style="-fx-box-border: ladder(&#10;-fx-color, black 20%, derive(-fx-color,-30%) 30% );">
+          <children>
+            <HBox alignment="CENTER_LEFT" minHeight="29.0" prefHeight="29.0" prefWidth="832.0" spacing="5.0">
+              <children>
+                <HBox id="HBox" fx:id="desdeFechaPanel" alignment="CENTER_LEFT" spacing="5.0">
+                  <children>
+                    <Label prefHeight="27.0" prefWidth="35.0" text="Desde">
+                      <font>
+                        <Font size="12.0" fx:id="x1" />
+                      </font>
+                    </Label>
+                  </children>
+                </HBox>
+                <HBox id="HBox" fx:id="hastaFechaPanel" alignment="CENTER_LEFT" spacing="5.0">
+                  <children>
+                    <Label font="$x1" prefHeight="27.0" prefWidth="35.0" text="Hasta" />
+                  </children>
+                </HBox>
+                <HBox id="HBox" alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
+                  <children>
+                    <Button fx:id="imprimirBtn" mnemonicParsing="false" onAction="#printPeriodo" text="Imprimir" />
+                  </children>
+                  <padding>
+                    <Insets right="10.0" />
+                  </padding>
+                </HBox>
+              </children>
+              <padding>
+                <Insets fx:id="x2" />
+              </padding>
+              <VBox.margin>
+                <Insets left="10.0" />
+              </VBox.margin>
+            </HBox>
+                  <StackPane VBox.vgrow="ALWAYS">
+                     <children>
+                  <TableView id="tablaPerdiodo" fx:id="tablaPeriodo" prefHeight="599.0" prefWidth="749.0" style="" VBox.vgrow="ALWAYS">
+                    <columns>
+                      <TableColumn fx:id="domingoColPer" editable="false" prefWidth="120.0" sortable="false" text="Domingo" />
+                      <TableColumn fx:id="lunesColPer" editable="false" prefWidth="120.0" sortable="false" text="Lunes" />
+                      <TableColumn fx:id="martesColPer" editable="false" prefWidth="120.0" sortable="false" text="Martes" />
+                      <TableColumn fx:id="miercolesColPer" editable="false" prefWidth="120.0" sortable="false" text="Miercoles" />
+                      <TableColumn fx:id="juevesColPer" editable="false" prefWidth="120.0" sortable="false" text="Jueves" />
+                      <TableColumn fx:id="viernesColPer" editable="false" prefWidth="70.0" sortable="false" text="Viernes" />
+                      <TableColumn fx:id="sabadoColPer" editable="false" minWidth="0.0" prefWidth="83.0" sortable="false" text="Sabado" />
+                    </columns>
+                    <stylesheets>
+                      <URL value="@../../tableTheme.css" />
+                    </stylesheets>
+                    <VBox.margin>
+                      <Insets left="10.0" right="10.0" />
+                    </VBox.margin>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                  </TableView>
+                        <ProgressIndicator fx:id="progress" maxHeight="150.0" progress="0.0" />
+                     </children>
+                  </StackPane>
+          </children>
+          <padding>
+            <Insets top="5.0" />
+          </padding>
+        </VBox>
+      </items>
+    </SplitPane>
+  </children>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+</VBox>

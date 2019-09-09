@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.mensajes.GeneralController">
+   <children>
+      <SplitPane id="SplitPane" fx:id="split1" dividerPositions="0.6932707355242567" prefHeight="700.0" prefWidth="1280.0">
+      <items>
+        <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="600.0" spacing="10.0" styleClass="panel-styled">
+          <children>
+            <Label styleClass="h2" text="Mensaje general">
+              <VBox.margin>
+                <Insets />
+              </VBox.margin>
+            </Label>
+            <VBox id="VBox" prefHeight="250.0" prefWidth="752.0" spacing="10.0" styleClass="panel-styled">
+              <children>
+                <Label styleClass="h3" text="Destinatarios:">
+                  <VBox.margin>
+                    <Insets />
+                  </VBox.margin>
+                </Label>
+                <ScrollPane id="ScrollPane" prefHeight="213.0" prefViewportHeight="22.0" prefViewportWidth="59.0" prefWidth="814.0" style="-fx-padding: 5;" VBox.vgrow="ALWAYS">
+                  <content>
+                    <VBox id="VBox" fx:id="destinos" spacing="5.0">
+                      <children>
+                        <CheckBox fx:id="todosChk" mnemonicParsing="false" text="Todos" />
+                      </children>
+                    </VBox>
+                  </content>
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </VBox.margin>
+                </ScrollPane>
+              </children>
+            </VBox>
+            <VBox id="VBox" alignment="CENTER" spacing="5.0" styleClass="panel-styled">
+              <children>
+                <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0">
+                  <children>
+                    <Label styleClass="h3" text="Mensaje:">
+                      <HBox.margin>
+                        <Insets />
+                      </HBox.margin>
+                    </Label>
+                  </children>
+                </HBox>
+                <TextArea id="textArea" fx:id="mensaje" prefHeight="188.0" prefWidth="754.0" promptText="Introduce el mensaje" styleClass="label" wrapText="true">
+                  <VBox.margin>
+                    <Insets left="15.0" right="15.0" />
+                  </VBox.margin>
+                </TextArea>
+                <StackPane id="StackPane">
+                  <children>
+                    <VBox id="VBox" alignment="CENTER_LEFT" spacing="5.0">
+                      <children>
+                        <Text fx:id="info" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar primero los destinatarios para el mensaje" />
+                      </children>
+                    </VBox>
+                    <VBox id="VBox" alignment="TOP_RIGHT" spacing="5.0">
+                      <children>
+                        <Label fx:id="tamMsj" alignment="CENTER" scaleX="0.8" scaleY="0.8" text="0 de 100" />
+                      </children>
+                    </VBox>
+                  </children>
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" />
+                           </VBox.margin>
+                </StackPane>
+              </children>
+              <padding>
+                <Insets bottom="10.0" top="5.0" />
+              </padding>
+            </VBox>
+            <HBox id="HBox" alignment="CENTER" prefHeight="65.0" prefWidth="633.0" spacing="15.0">
+              <children>
+                <Button mnemonicParsing="false" onAction="#limpiarMensaje" prefWidth="97.0" text="LIMPIAR" />
+                <Button mnemonicParsing="false" onAction="#guardarMensaje" prefWidth="97.0" text="ENVIAR" />
+              </children>
+            </HBox>
+          </children>
+          <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="15.0" />
+          </padding>
+        </VBox>
+        <VBox fx:id="precaucion" alignment="TOP_CENTER" spacing="10.0" styleClass="panel-styled">
+          <children>
+          <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h2" text="Precaución!" />
+            <Label text="La siguiente lista de usuarios aun tienen mensajes pendientes que seran eliminados" wrapText="true" />
+            <TableView fx:id="tablaUsuarios" prefHeight="615.0" prefWidth="359.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="nomCol" prefWidth="250.0" text="Nombre" />
+              </columns>
+            </TableView>
+          </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+               </padding>
+        </VBox>
+      </items>
+      </SplitPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="VBox" alignment="CENTER" prefHeight="1000.0" prefWidth="1280.0" spacing="5.0" styleClass="greyBack" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.calendario.AgregarEventoController">
+  <children>
+    <VBox alignment="TOP_CENTER" maxWidth="700.0" prefHeight="400.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label styleClass="h2" text="Tipo de Eventos">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+        </Label>
+        <TableView fx:id="tablaEventos" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="colorCol" prefWidth="75.0" text="Color" />
+            <TableColumn fx:id="eventoCol" prefWidth="75.0" text="Evento" />
+          </columns>
+        </TableView>
+        <Separator prefWidth="200.0" />
+        <HBox alignment="CENTER_LEFT" prefHeight="85.0" prefWidth="680.0" spacing="10.0">
+          <children>
+            <ColorPicker fx:id="colorNew" />
+            <TextField fx:id="eventoNew" prefWidth="200.0" />
+            <Button mnemonicParsing="false" onAction="#addEvento" prefWidth="150.0" text="AGREGAR" />
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@../../tableTheme.css" />
+  </stylesheets>
+</VBox>

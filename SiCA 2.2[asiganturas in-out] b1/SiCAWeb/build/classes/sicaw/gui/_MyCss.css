@@ -1,0 +1,135 @@
+.greyBack {
+    -fx-background-color: #ebebeb;    
+}
+.toggle-button {
+    -fx-background-color: null;
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-text-fill: black;/* linear-gradient(white, #d0d0d0);*/
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+    -fx-border-with:0;
+} 
+.toggle-button:selected {
+    -fx-background-color: #090a0c,
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 10 20;
+} 
+.toggle-button:hover{
+    -fx-cursor:hand;
+}
+.top-menu {
+    -fx-background-color: #090a0c,
+        linear-gradient(#888E93 0%, #797C7F 20%, #75777A 100%),
+        linear-gradient(#797D80, #5E6164),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );    
+}
+
+.button {
+     -fx-background-color: 
+        linear-gradient(#38424b 0%, #1f2429 20%, #888E93 100%),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 7;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 10 20 3 20;
+}
+.button:hover{
+    -fx-cursor:hand;
+}
+.menu-bar{
+    -fx-background-color: 
+        linear-gradient(#888E93 0%, #797C7F 20%, #75777A 100%),
+        linear-gradient(#797D80, #5E6164),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-font-size: 16px;
+    -fx-padding: 1 20 1 20;
+    -fx-border-style:none;
+}
+.menu:hover, .menu:showing, .menu-item:focused  {
+    -fx-background-color: 
+        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
+        linear-gradient(#20262b, #191d22),
+        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
+    -fx-background-radius: 5,4,3,5;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    
+}
+.menu-item .label {
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 14px;
+}
+.text-field {
+    -fx-font-size: 12pt;   
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius:30;    
+}
+.text-area {
+    -fx-font-size: 12pt;
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius:10;    
+}
+.text-field-login {
+    -fx-font-size: 12pt;
+    -fx-font-family: AvenirLTStd-Heavy;
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #75777A;
+    -fx-border-width: 1;
+    -fx-border-radius:10
+        ;    
+}
+.label {
+    -fx-font-size: 14pt;
+    -fx-font-family: AvenirLTStd-Heavy;    
+}
+.label-title{
+    -fx-font-size: 30pt;
+    -fx-font-family: AvenirLTStd-Heavy;
+}
+
+.cleanBtn {
+    -fx-background-color: transparent;        
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.1) , 5, 0.0 , 0 , 1 );
+    -fx-padding: 0;
+}
+.cleanBtn:hover{
+    -fx-cursor:hand;
+}
+
+.panel-styled{
+    -fx-background-color: #eeedff;
+    -fx-background-radius: 13;
+    -fx-border-color: #75777A; 
+    -fx-border-radius: 12;        
+}
+.panel-colored{
+    -fx-background-color: #eeedff;        
+}
+
+.split-pane2 {
+    -fx-border-width: 10;    
+}
+
+.progress-indicator .percentage {
+    -fx-font-size: 0;
+}

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1180.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.Bienvenida">
+   <children>
+      <HBox alignment="BOTTOM_LEFT" spacing="10.0" VBox.vgrow="NEVER">
+         <children>
+            <Text id="nombreTxt" fx:id="nombre" focusTraversable="true" layoutX="176.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h2" text="NOMBRE AQUI" textOrigin="BASELINE" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="5.0">
+               <font>
+                  <Font name="Segoe UI Light" size="23.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+      <HBox prefHeight="220.0" prefWidth="1160.0" spacing="10.0" VBox.vgrow="NEVER">
+         <children>
+            <TitledPane animated="false" collapsible="false" focusTraversable="false" layoutX="25.0" layoutY="78.0" prefHeight="225.0" prefWidth="98.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="50.0">
+               <content>
+                  <ImageView id="userImg" fx:id="imageUsr" fitHeight="198.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Fotografía" />
+               </graphic>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" focusTraversable="false" layoutX="202.0" layoutY="70.0" prefHeight="240.0" prefWidth="935.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" HBox.hgrow="ALWAYS">
+               <content>
+                  <GridPane alignment="TOP_CENTER" prefHeight="142.0" prefWidth="943.0">
+                     <children>
+                        <Label text="Nombre">
+                           <font>
+                              <Font name="System Bold" size="12.0" fx:id="x1" />
+                           </font>
+                        </Label>
+                        <Label font="$x1" text="Tipo" GridPane.rowIndex="2" />
+                        <Label font="$x1" text="Instancia" GridPane.rowIndex="3" />
+                        <Label font="$x1" text="Correo(s)" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Label font="$x1" text="Teléfono" GridPane.rowIndex="4" />
+                        <Label fx:id="codigo" text="codigo" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="tipo" text="tipo" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="instancia" text="instancia" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label fx:id="telefono" text="telefono" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label text="Código" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="12.0" fx:id="x11" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nombre2" prefHeight="17.0" prefWidth="513.0" text="nombre" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <ListView fx:id="correos" prefHeight="0.0" prefWidth="378.0" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                           <GridPane.margin>
+                              <Insets bottom="10.0" />
+                           </GridPane.margin>
+                        </ListView>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints fillWidth="false" halignment="RIGHT" hgrow="NEVER" maxWidth="649.0" minWidth="10.0" prefWidth="96.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="807.0" minWidth="10.0" prefWidth="277.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="807.0" minWidth="10.0" prefWidth="342.0" />
+                        <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="807.0" minWidth="10.0" prefWidth="231.0" />
+                     </columnConstraints>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+               <graphic>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="20.0" prefWidth="767.0" spacing="15.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Detalles" />
+                        <Label text="(Si alguno de estos datos es incorrecto favor de acudir a Coordinación de Personal)" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </TitledPane>
+         </children>
+      </HBox>
+      <SplitPane id="split-pane" fx:id="split" dividerPositions="0.23575129533678757, 0.6321243523316062" prefHeight="41.0" prefWidth="1160.0" VBox.vgrow="ALWAYS">
+         <items>
+            <TitledPane fx:id="jornadaPane" animated="false" collapsible="false" focusTraversable="false" maxHeight="1.7976931348623157E308" minWidth="-1.0" prefHeight="343.0" prefWidth="293.0" style="-fx-box-border: ladder(&#10;-fx-color, black 20%, derive(-fx-color,-30%) 30%);" text="">
+               <content>
+                  <VBox id="VBox" alignment="TOP_CENTER" prefHeight="231.0" prefWidth="6.0" spacing="5.0">
+                     <children>
+                        <GridPane prefHeight="261.0" prefWidth="244.0">
+                           <children>
+                              <Label font="$x1" text="Dia" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                              <Label font="$x1" text="Hora entrada" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                              <Label font="$x1" text="Hora salida" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                              <Label font="$x1" text="Domingo" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                              <Label font="$x1" text="Lunes" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                              <Label font="$x1" text="Martes" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                              <Label font="$x1" text="Míercoles" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                              <Label font="$x1" text="Jueves" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                              <Label font="$x1" text="Viernes" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                              <Label font="$x1" text="Sabado" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                              <Label fx:id="lunEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="marEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="mieEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="jueEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label fx:id="vieEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label fx:id="sabEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <Label fx:id="lunSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label fx:id="marSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label fx:id="mieSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label fx:id="jueSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Label fx:id="vieSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                              <Label fx:id="sabSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                              <Label fx:id="domEnt" text="--:--:--" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="domSal" text="--:--:--" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="63.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="94.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="274.0" minWidth="10.0" prefWidth="91.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Horario Jornada Laboral" />
+               </graphic>
+            </TitledPane>
+            <TitledPane fx:id="materiasPane" animated="false" collapsible="false" focusTraversable="false" layoutX="14.0" layoutY="303.0" maxHeight="1.7976931348623157E308" prefHeight="500.0" prefWidth="462.0" style="-fx-box-border: ladder(&#10;-fx-color, black 20%, derive(-fx-color,-30%) 30%);" text="">
+               <content>
+                  <TableView fx:id="tablaMaterias" prefHeight="232.0" prefWidth="276.0">
+                     <columns>
+                        <TableColumn fx:id="bloqueCol" prefWidth="75.0" text="4x4" />
+                        <TableColumn fx:id="crnCol" prefWidth="52.0" text="CRN" />
+                        <TableColumn fx:id="materiaCol" prefWidth="113.0" text="Materia" />
+                        <TableColumn fx:id="diaCol" prefWidth="60.0" text="Día" />
+                        <TableColumn fx:id="horarioCol" prefWidth="75.0" text="Horario" />
+                        <TableColumn fx:id="aulaCol" prefWidth="75.0" text="Aula" />
+                     </columns>
+                  </TableView>
+               </content>
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Horario Asignaturas" />
+               </graphic>
+            </TitledPane>
+            <TitledPane fx:id="justifPane" animated="false" collapsible="false" focusTraversable="false" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" prefHeight="500.0" prefWidth="462.0" style="-fx-box-border: ladder(&#10;-fx-color, black 20%, derive(-fx-color,-30%) 30%);" text="">
+               <content>
+                  <TableView fx:id="tablaJustif" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                        <TableColumn fx:id="fechaCol" prefWidth="68.0" text="Fecha creado" />
+                      <TableColumn fx:id="folioCol" prefWidth="68.0" text="Folio" />
+                      <TableColumn fx:id="justifCol" prefWidth="190.0" text="Justificante" />
+                        <TableColumn fx:id="estatusCol" prefWidth="91.0" text="Estatus" />
+                    </columns>
+                  </TableView>
+               </content>
+               <graphic>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="20.0" prefWidth="403.0" spacing="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="Últimos justificantes" />
+                        <Label text="(Selecciona folio para ver detalles)" />
+                     </children>
+                  </HBox>
+               </graphic>
+            </TitledPane>
+         </items>
+      </SplitPane>
+   </children>
+   <stylesheets>
+     <URL value="@../tableTheme.css" />
+   </stylesheets>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" />
+   </padding>
+</VBox>

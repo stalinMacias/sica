@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox id="VBox" alignment="TOP_CENTER" styleClass="panel-styled" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.asistencia.PorDiaController">
+<children>
+  <HBox fx:id="opciones" alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="1270.0" snapToPixel="false" spacing="15.0">
+    <children>
+      <Label text="Mostrar usuarios" />
+      <ComboBox fx:id="tipoUsuarios" maxHeight="1.7976931348623157E308" minHeight="18.62109375" prefWidth="301.0">
+        <items>
+          <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Item 1" />
+            <String fx:value="Item 2" />
+            <String fx:value="Item 3" />
+          </FXCollections>
+        </items>
+      </ComboBox>
+      <Label prefHeight="27.0" prefWidth="40.0" text="Fecha">
+        <font>
+          <Font size="12.0" />
+        </font>
+      </Label>
+      <HBox fx:id="fechaPanel" alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="160.0" spacing="0.0">
+        <padding>
+          <Insets />
+        </padding>
+      </HBox>
+      <Button fx:id="buscar" mnemonicParsing="false" onAction="#updateTablePorDia" text="Buscar" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
+        <children>
+          <Button fx:id="imprimir" mnemonicParsing="false" onAction="#printPDF" text="Imprimir" />
+        </children>
+        <HBox.margin>
+          <Insets right="10.0" />
+        </HBox.margin>
+      </HBox>
+    </children>
+    <VBox.margin>
+      <Insets bottom="10.0" top="5.0" />
+    </VBox.margin>
+  </HBox>
+      <StackPane VBox.vgrow="ALWAYS">
+         <children>
+        <TableView id="tablaRegistros" fx:id="tablaPorDia" editable="true" prefHeight="612.0" prefWidth="1270.0" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="codigoColDia" minWidth="100.0" prefWidth="100.0" text="Codigo" />
+            <TableColumn fx:id="nombreColDia" minWidth="200.0" prefWidth="400.0" text="Nombre" />
+            <TableColumn id="entradaColDia" fx:id="entradaColDia" minWidth="100.0" prefWidth="200.0" text="Entrada" />
+            <TableColumn id="salidaColDia" fx:id="salidaColDia" minWidth="100.0" prefWidth="200.0" text="Salida" />
+          </columns>
+          <stylesheets>
+            <URL value="@../../tableTheme.css" />
+          </stylesheets>
+          <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+          </VBox.margin>
+        </TableView>
+            <ProgressIndicator fx:id="progress" maxHeight="150.0" progress="0.0" />
+         </children>
+      </StackPane>
+</children>
+<stylesheets>
+    <URL value="@../../tableTheme.css" />
+</stylesheets>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+</VBox>

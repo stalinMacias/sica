@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<VBox prefHeight="492.0" prefWidth="847.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.administrar.AplicacionController">
+   <children>
+      <Label text="** Las configuraciones solo aplicarán a los checadores que tengan la opción de configuraciones del servidor habilitada">
+         <VBox.margin>
+            <Insets left="-20.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label text="Servidor Web:" />
+            <TextField fx:id="txtServidor" focusTraversable="false" prefHeight="25.0" prefWidth="407.0" />
+         </children>
+      </HBox>
+      <CheckBox fx:id="chkFullScreen" mnemonicParsing="false" text="Usar aplicación a pantalla completa" />
+      <CheckBox fx:id="chkDecorated" layoutX="20.0" layoutY="37.0" mnemonicParsing="false" text="Deshabilitar decorado de ventana *" />
+      <CheckBox fx:id="chkAltf4" layoutX="20.0" layoutY="64.0" mnemonicParsing="false" text="Ignorar peticiones de cerrado (con excepción de Ctrl + q )" />
+      <CheckBox fx:id="chkEsc" layoutX="20.0" layoutY="37.0" mnemonicParsing="false" text="Prevenir salir de pantalla con tecla ESC" />
+      <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="225.0" spacing="10.0">
+         <children>
+            <ComboBox fx:id="tecladotime" prefHeight="25.0" prefWidth="74.0" />
+            <Label text="Tiempo de espera para introducir código de usuario" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <ComboBox fx:id="timedata" prefHeight="25.0" prefWidth="74.0" />
+            <Label text="Duracion de la pantalla de información del registro realizado" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="330.0" spacing="10.0">
+         <children>
+            <ComboBox fx:id="huellatime" prefHeight="25.0" prefWidth="74.0" />
+            <Label text="Tiempo de espera para acceder al menu" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="277.0" spacing="10.0">
+         <children>
+            <ComboBox fx:id="tiempoServidor" prefHeight="25.0" prefWidth="74.0" />
+            <Label text="Tiempo de espera para servidor" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#saveConfigs" prefHeight="30.0" prefWidth="80.0" text="Aplicar" />
+            <Button mnemonicParsing="false" onAction="#loadConfigs" prefHeight="30.0" prefWidth="80.0" text="Descartar" />
+            <Label text="* Se aplicaran hasta reiniciar la aplicacion manualmente" />
+         </children>
+         <padding>
+            <Insets top="30.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="30.0" right="10.0" />
+   </padding>
+</VBox>

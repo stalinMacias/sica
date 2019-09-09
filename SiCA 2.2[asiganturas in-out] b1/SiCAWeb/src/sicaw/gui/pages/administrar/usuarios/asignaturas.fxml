@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="560.0" prefWidth="471.0" spacing="5.0" styleClass="panel-colored" xmlns:fx="http://javafx.com/fxml" fx:controller="sicaw.gui.pages.administrar.usuarios.AsignaturasController">
+  <children>
+    <HBox alignment="CENTER" prefHeight="38.0" prefWidth="471.0" spacing="10.0">
+      <children>
+        <Label text="Año" />
+        <ChoiceBox fx:id="anio">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Label text="Ciclo" />
+        <ChoiceBox fx:id="ciclo">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Item 1" />
+              <String fx:value="Item 2" />
+              <String fx:value="Item 3" />
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Button mnemonicParsing="false" onAction="#update" text="Buscar" />
+      </children>
+      <padding>
+        <Insets top="5.0" />
+      </padding>
+    </HBox>
+    <TableView fx:id="tabla" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <columns>
+        <TableColumn prefWidth="75.0" text="4x4" fx:id="bloqueCol" />
+        <TableColumn prefWidth="75.0" text="CRN" fx:id="crnCol" />
+        <TableColumn prefWidth="75.0" text="Materia" fx:id="materiaCol" />
+        <TableColumn prefWidth="75.0" text="Dia" fx:id="diaCol" />
+        <TableColumn prefWidth="75.0" text="Horario" fx:id="horarioCol" />
+        <TableColumn prefWidth="75.0" text="Aula" fx:id="aulaCol" />
+      </columns>
+      <VBox.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" />
+      </VBox.margin>
+    </TableView>
+  </children>
+  <stylesheets>
+    <URL value="@../../../tableTheme.css" />
+  </stylesheets>
+</VBox>

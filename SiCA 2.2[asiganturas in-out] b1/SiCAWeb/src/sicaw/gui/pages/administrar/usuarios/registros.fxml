@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="577.0" prefWidth="497.0" styleClass="panel-colored" xmlns:fx="http://javafx.com/fxml" fx:controller="sicaw.gui.pages.administrar.usuarios.RegistrosController">
+  <children>
+    <HBox alignment="BOTTOM_CENTER" minHeight="14.0" prefHeight="25.0" prefWidth="487.0" spacing="10.0">
+      <children>
+        <HBox id="HBox" fx:id="desdeFechaPanel" alignment="BOTTOM_CENTER" minHeight="19.0" prefHeight="19.0" spacing="5.0">
+          <children>
+            <Label text="Desde" />
+          </children>
+          <padding>
+            <Insets bottom="5.0" fx:id="x2" />
+          </padding>
+        </HBox>
+        <HBox id="HBox" fx:id="hastaFechaPanel" alignment="BOTTOM_CENTER" padding="$x2" spacing="5.0">
+          <children>
+            <Label id="hastaFechaPanel" text="Hasta" />
+          </children>
+        </HBox>
+        <Button mnemonicParsing="false" onAction="#buscar" text="Buscar" />
+        <Button mnemonicParsing="false" onAction="#printRegs" text="Imprimir" />
+      </children>
+      <VBox.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+      </VBox.margin>
+    </HBox>
+    <TableView id="tabla" fx:id="tablaRegistros" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Fecha" fx:id="fechaCol" />
+        <TableColumn prefWidth="75.0" text="Hora" fx:id="horaCol" />
+        <TableColumn prefWidth="75.0" text="Tipo" fx:id="tipoRegCol" />
+        <TableColumn prefWidth="75.0" text="Modificado" fx:id="modifCol" />
+      </columns>
+      <VBox.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+      </VBox.margin>
+    </TableView>
+  </children>
+  <stylesheets>
+    <URL value="@../../../tableTheme.css" />
+  </stylesheets>
+</VBox>

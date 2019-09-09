@@ -1,3 +1,10 @@
 06/09/2019:
 	- Para guardar una huella se requiere capturar 4 veces para que se ejecute el metodo que la almacena en la base de datos del servidor!
 	- Despues de haber guardado una huella a un usuario, es necesario actualizar la base de datos local para que sea reconocida por la aplciación!
+
+************************************************************************************************************
+
+
+************************************************************************************************************
+09/09/2019:
+	- 

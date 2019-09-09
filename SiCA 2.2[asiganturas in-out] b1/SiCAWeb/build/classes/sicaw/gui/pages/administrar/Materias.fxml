@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="1000.0" prefHeight="1000.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.administrar.MateriasController">
+  <children>
+    <SplitPane fx:id="split" dividerPositions="0.6161616161616161" focusTraversable="true" prefHeight="680.0" prefWidth="1190.0" VBox.vgrow="ALWAYS">
+      <items>
+        <VBox alignment="TOP_CENTER" prefHeight="699.0" prefWidth="357.0" styleClass="panel-styled">
+          <children>
+            <Button fx:id="addNew" mnemonicParsing="false" onAction="#crearMateria" prefHeight="32.0" prefWidth="175.0" text="AÑADIR NUEVA MATERIA">
+              <VBox.margin>
+                <Insets top="10.0" />
+              </VBox.margin>
+            </Button>
+            <TableView fx:id="tablaMaterias" prefHeight="536.0" prefWidth="357.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="codigoColUs" prefWidth="120.0" text="Clave" />
+                <TableColumn fx:id="nombreColUs" prefWidth="400.0" text="Materia" />
+                <TableColumn fx:id="depColUs" prefWidth="400.0" text="Departamento" />
+              </columns>
+              <VBox.margin>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+              </VBox.margin>
+            </TableView>
+          </children>
+        </VBox>
+            <VBox spacing="20.0" style="-fx-padding: 15;">
+               <children>
+            <Label layoutX="24.0" layoutY="30.0" styleClass="h2" text="Detalles de la materia" />
+            <GridPane prefHeight="102.0" prefWidth="453.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="100.0">
+              <children>
+                <Label text="Clave" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <Label text="Nombre" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="infoCodigo" disable="true" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" />
+                <TextField fx:id="infoNombre" onAction="#updateValMateria" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                <Label text="Departamento" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <ComboBox fx:id="infoDepto" onAction="#updateValMateria" prefHeight="23.0" prefWidth="339.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Item 1" />
+                      <String fx:value="Item 2" />
+                      <String fx:value="Item 3" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" maxWidth="98.0" minWidth="10.0" prefWidth="96.0" />
+                <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="10.0" prefWidth="307.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <HBox fx:id="botonesNuevaMateria" layoutX="14.0" layoutY="247.0" prefHeight="54.0" prefWidth="589.0" spacing="20.0">
+              <children>
+                <Button mnemonicParsing="false" onAction="#cancelarNuevaMateria" prefWidth="140.0" text="CANCELAR" />
+                <Button mnemonicParsing="false" onAction="#guardarNuevaMateria" prefWidth="140.0" text="GUARDAR" />
+              </children>
+            </HBox>
+               </children>
+            </VBox>
+      </items>
+      <VBox.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" />
+      </VBox.margin>
+    </SplitPane>
+  </children>
+  <stylesheets>
+    <URL value="@../../tableTheme.css" />
+  </stylesheets>
+</VBox>

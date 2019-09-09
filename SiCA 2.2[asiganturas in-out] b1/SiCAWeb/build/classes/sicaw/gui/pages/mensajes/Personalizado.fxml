@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.mensajes.PersonalizadoController">
+  <children>
+    <SplitPane fx:id="split1" dividerPositions="0.49761526232114467" focusTraversable="true" prefHeight="480.0" prefWidth="659.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <VBox prefHeight="478.0" prefWidth="285.0" styleClass="panel-styled">
+          <children>
+            <TableView fx:id="tablaUsuarios" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="codCol" prefWidth="75.0" text="Código" />
+                <TableColumn fx:id="nomCol" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="tipoCol" prefWidth="75.0" text="Tipo" />
+              </columns>
+            </TableView>
+          </children>
+          <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+          </padding>
+        </VBox>
+        <VBox prefHeight="479.0" prefWidth="337.0" spacing="5.0" styleClass="panel-styled">
+          <children>
+            <Label id="destino" styleClass="h2" text="Mensaje personalizado" />
+            <Text fx:id="destino" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="h3" text="A: Destinatario" />
+            <TextArea fx:id="textArea" prefHeight="141.0" prefWidth="569.0" promptText="Introduce el mensaje" styleClass="label" wrapText="true">
+              <VBox.margin>
+                <Insets left="20.0" right="20.0" />
+              </VBox.margin>
+            </TextArea>
+            <StackPane id="StackPane">
+              <children>
+                <VBox id="VBox" alignment="CENTER_LEFT" spacing="5.0">
+                  <children>
+                    <Text fx:id="info" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccionar primero el destinatario" />
+                  </children>
+                </VBox>
+                <VBox id="VBox" alignment="TOP_RIGHT" spacing="5.0">
+                  <children>
+                    <Label fx:id="tamMsj" alignment="CENTER" scaleX="0.8" scaleY="0.8" text="0 de 100" />
+                  </children>
+                </VBox>
+              </children>
+              <padding>
+                <Insets left="20.0" right="20.0" />
+              </padding>
+            </StackPane>
+            <HBox id="HBox" alignment="CENTER" prefHeight="65.0" prefWidth="633.0" spacing="20.0">
+              <children>
+                <Button mnemonicParsing="false" onAction="#limpiarMensaje" prefWidth="97.0" text="LIMPIAR" />
+                <Button mnemonicParsing="false" onAction="#guardarMensaje" prefWidth="97.0" text="ENVIAR" />
+              </children>
+            </HBox>
+          </children>
+          <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+          </padding>
+        </VBox>
+      </items>
+    </SplitPane>
+  </children>
+  <stylesheets>
+    <URL value="@../../tableTheme.css" />
+  </stylesheets>
+</AnchorPane>
