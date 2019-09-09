@@ -21,10 +21,10 @@ $dir = "C:\wamp64\www\sica";
 
 //detalles para el envio de correo electronico
 //define("MAIL_HOST","148.202.119.16");
-define("MAIL_HOST","127.0.0.1");  //Dirección local
-define("MAIL_PORT",25);
-define("MAIL_USERNAME","sicacusur@cusur.udg.mx");
-define("MAIL_PASSWORD","hola123"); //*/
+define("MAIL_HOST","smtp.google.com");  //Dirección local
+define("MAIL_PORT",587);
+define("MAIL_USERNAME","dario.vazquez@administrativos.udg.mx");
+define("MAIL_PASSWORD","CUSur123"); //*/
 
 /*/datos de cuenta GMail
 define("MAIL_HOST","smtp.gmail.com");
