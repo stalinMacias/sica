@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane fx:id="mainContainer" prefHeight="1000.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.Principal">
+  <children>
+    <VBox fx:id="container" prefHeight="369.0" prefWidth="1280.0" spacing="5.0" />
+      <VBox fx:id="avisos" alignment="BOTTOM_CENTER" maxWidth="350.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+         <StackPane.margin>
+            <Insets bottom="100.0" left="25.0" right="25.0" top="40.0" />
+         </StackPane.margin>
+      </VBox>
+  </children>
+</StackPane>

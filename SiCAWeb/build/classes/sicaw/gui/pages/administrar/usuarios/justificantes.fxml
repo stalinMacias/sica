@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="549.0" prefWidth="460.0" styleClass="panel-colored" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.administrar.usuarios.JustificacionesController">
+  <children>
+    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="460.0" spacing="10.0">
+      <children>
+            <Label text="Mostrar últimos: " />
+            <ChoiceBox fx:id="cantidad" prefHeight="25.0" prefWidth="79.0" />
+        <Button mnemonicParsing="false" onAction="#update" text="Buscar" />
+      </children>
+    </HBox>
+    <TableView id="tablajustificantes" fx:id="tabla" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+      <columns>
+        <TableColumn fx:id="folio" prefWidth="75.0" text="Folio" />
+        <TableColumn fx:id="tipo" prefWidth="75.0" text="Tipo" />
+        <TableColumn fx:id="justificante" prefWidth="75.0" text="Justificante" />
+        <TableColumn fx:id="estatus" prefWidth="75.0" text="Estatus" />
+      </columns>
+      <VBox.margin>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </VBox.margin>
+    </TableView>
+  </children>
+  <stylesheets>
+    <URL value="@../../../tableTheme.css" />
+  </stylesheets>
+</VBox>

@@ -12,10 +12,8 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/sica-core/src/sica/Autenticator.java</file>
-            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/sica-core/src/sica/LocalDB.java</file>
-            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/sica-core/src/sica/CodigoValidator.java</file>
-            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/sica-core/src/sica/Configs.java</file>
+            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/sica-core/src/sica/ScannerCapturator.java</file>
+            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/sica-core/src/sica/Updater.java</file>
         </group>
     </open-files>
 </project-private>

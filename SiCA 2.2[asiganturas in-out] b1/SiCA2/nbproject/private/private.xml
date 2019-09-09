@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="4">
+        <file>
+            <url>src/sica/screen/menuviews/AdminUsuario.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>125</line>
+                <key/>
+            </bookmark>
+            <bookmark id="3">
+                <name/>
+                <line>126</line>
+                <key/>
+            </bookmark>
+            <bookmark id="4">
+                <name/>
+                <line>184</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/SiCA2/src/sica/screen/menuviews/AdminUsuario.java</file>
-            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/SiCA2/src/sica/screen/menuviews/AdminUsuario.fxml</file>
-            <file>file:/C:/wamp64/www/sica/SiCA%202.2%5Basiganturas%20in-out%5D%20b1/SiCA2/src/sica/screen/Menu.java</file>
         </group>
     </open-files>
 </project-private>

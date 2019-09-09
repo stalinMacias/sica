@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="1000.0" prefWidth="1280.0" styleClass="greyBack" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sicaw.gui.pages.administrar.LogController">
+  <children>
+    <TableView fx:id="tablaLog" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Usuario" fx:id="usuario" />
+        <TableColumn prefWidth="75.0" text="Nombre" fx:id="nombre" />
+        <TableColumn prefWidth="75.0" text="Fecha y hora" fx:id="fecha" />
+        <TableColumn prefWidth="75.0" text="Desripción" fx:id="descrip" />
+      </columns>
+    </TableView>
+  </children>
+  <padding>
+    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+  </padding>
+  <stylesheets>
+    <URL value="@../../tableTheme.css" />
+  </stylesheets>
+</HBox>

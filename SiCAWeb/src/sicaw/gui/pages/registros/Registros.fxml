@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox id="VBox" alignment="CENTER" prefHeight="551.0" prefWidth="711.0" spacing="5.0" styleClass="panel-styled" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.registros.RegistrosController">
+<children>
+  <HBox alignment="CENTER_LEFT" minHeight="16.0" prefHeight="32.0" prefWidth="1258.0" spacing="10.0">
+    <children>
+      <HBox id="HBox" fx:id="desdeFechaPanel" alignment="CENTER_LEFT" spacing="5.0">
+        <children>
+          <Label text="Consultar registros desde">
+            <HBox.margin>
+              <Insets right="10.0" />
+            </HBox.margin>
+          </Label>
+        </children>
+      </HBox>
+      <HBox id="HBox" fx:id="hastaFechaPanel" alignment="CENTER" spacing="5.0">
+        <children>
+          <Label text="hasta">
+            <HBox.margin>
+              <Insets left="10.0" right="10.0" />
+            </HBox.margin>
+          </Label>
+        </children>
+      </HBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+        <children>
+          <Button mnemonicParsing="false" onAction="#printRegs" text="Imprimir" />
+        </children>
+      </HBox>
+    </children>
+    <padding>
+      <Insets left="5.0" right="5.0" fx:id="x1" />
+    </padding>
+  </HBox>
+  <SplitPane fx:id="split1" dividerPositions="0.4701130856219709" focusTraversable="true" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+    <items>
+      <TableView fx:id="tablaUsuarios" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="codigoCol" prefWidth="75.0" text="Codigo" />
+          <TableColumn fx:id="nombreCol" prefWidth="75.0" text="Nombre" />
+          <TableColumn fx:id="tipoCol" prefWidth="75.0" text="Tipo" />
+        </columns>
+      </TableView>
+      <VBox id="VBox" alignment="CENTER" spacing="5.0">
+        <children>
+          <Label fx:id="infoNombre" styleClass="h3" text="Seleccionar Usuario" />
+          <TableView id="tablaIncidencias" fx:id="tablaRegistros" prefHeight="349.0" prefWidth="315.0" VBox.vgrow="ALWAYS">
+            <columns>
+              <TableColumn fx:id="fechaCol" prefWidth="75.0" text="Fecha" />
+              <TableColumn fx:id="horaCol" prefWidth="75.0" text="Hora" />
+              <TableColumn fx:id="imgRegCol" prefWidth="75.0" text="" />
+              <TableColumn fx:id="tipoRegCol" prefWidth="75.0" text="Tipo" />
+              <TableColumn fx:id="modifCol" prefWidth="75.0" text="Modificado" />
+            </columns>
+          </TableView>
+          <HBox alignment="CENTER" prefHeight="32.0" prefWidth="648.0" spacing="10.0">
+            <children>
+              <Label text="Crear registro: Fecha:" />
+              <HBox fx:id="addFechaPanel" alignment="CENTER" prefHeight="32.0" prefWidth="179.0" />
+              <Label text="Hora:" />
+              <TextField fx:id="addHora" prefWidth="128.0" text="--:--:--" />
+              <Button mnemonicParsing="false" onAction="#addRegistro" text="Agregar" />
+            </children>
+          </HBox>
+        </children>
+      </VBox>
+    </items>
+  </SplitPane>
+</children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" />
+   </padding>
+</VBox>

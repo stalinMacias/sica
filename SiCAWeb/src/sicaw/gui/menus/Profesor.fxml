@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<MenuBar xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.menus.MenuController">
+<menus>
+  <Menu mnemonicParsing="false">
+         <graphic>
+            <Text id="salir" fontSmoothingType="LCD" onMouseClicked="#setScreenMiperfil" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: -fx-text-base-color;" text="Mi perfil" />
+         </graphic>
+  </Menu>
+  <Menu mnemonicParsing="false" text="Reportes">
+    <items>
+      <Menu mnemonicParsing="false" text="Asistencia">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Por día" />
+          <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Por periodo" />
+        </items>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Faltas">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#setScreen" text="A asignaturas" />
+        </items>
+      </Menu>
+    </items>
+  </Menu>
+      <Menu mnemonicParsing="false" text="">
+         <graphic>
+            <Text id="salir" fontSmoothingType="LCD" onMouseClicked="#setScreenJustificar" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: -fx-text-base-color;" text="Justificar" />
+         </graphic>
+      </Menu>
+      <Menu mnemonicParsing="false" text="Ayuda">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Enviar justificantes" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Acerca de" />
+         </items>
+      </Menu>
+  <Menu mnemonicParsing="false" text="">
+    <graphic>
+      <Text id="salir" fontSmoothingType="LCD" onMouseClicked="#exitSession" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: -fx-text-base-color;" text="Salir" />
+    </graphic>
+  </Menu>
+</menus>
+</MenuBar>

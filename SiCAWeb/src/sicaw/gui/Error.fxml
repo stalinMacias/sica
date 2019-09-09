@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="1280.0" styleClass="mainFxmlClass, greyBack" xmlns:fx="http://javafx.com/fxml" fx:controller="sicaw.gui.ErrorController">
+  <children>
+    <VBox id="container" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="1280.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ha ocurrido un error de conexión">
+          <effect>
+            <Glow>
+              <input>
+                <Reflection fraction="0.5" topOffset="-25.0" />
+              </input>
+            </Glow>
+          </effect>
+          <font>
+            <Font name="Segoe UI Light" size="60.0" />
+          </font>
+        </Text>
+        <ImageView fx:id="imgError" fitHeight="380.0" fitWidth="494.66668637427586" pickOnBounds="true" preserveRatio="true" />
+        <Label text="Lamentamos los inconvenientes que esto pueda ocacionar" />
+      </children>
+      <padding>
+        <Insets top="20.0" />
+      </padding>
+    </VBox>
+  </children>
+  <stylesheets>
+    <URL value="@tableTheme.css" />
+  </stylesheets>
+</AnchorPane>

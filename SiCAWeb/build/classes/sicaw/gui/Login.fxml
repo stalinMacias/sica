@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane alignment="TOP_CENTER" maxHeight="1000.0" prefHeight="363.0" prefWidth="479.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.LoginController">
+  <children>
+  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfdfdf93" height="184.0" opacity="1.0" smooth="false" stroke="#75777a7a" strokeType="INSIDE" strokeWidth="1.0" width="294.0" />
+  <VBox id="VBox" alignment="TOP_CENTER" maxWidth="200.0" prefHeight="175.0" prefWidth="200.0" spacing="5.0">
+    <children>
+            <StackPane>
+               <children>
+                <TextField fx:id="txtUser" onAction="#focusPass" prefHeight="40.0" prefWidth="220.0" promptText="Usuario" styleClass="text-field-login" text="" HBox.hgrow="ALWAYS" />
+                  <HBox fx:id="loadingBox" alignment="CENTER_RIGHT">
+                     <children>
+                        <ProgressIndicator fx:id="loading" prefHeight="18.0" prefWidth="26.0" />
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </StackPane>
+      <PasswordField fx:id="txtPass" onAction="#login" prefHeight="40.0" prefWidth="220.0" promptText="Contraseña" styleClass="text-field-login" />               
+      <Label fx:id="fail" text="Usuario y/o contraseña inválida" textFill="RED" />
+      <Button fx:id="button" contentDisplay="CENTER" minHeight="26.0" mnemonicParsing="false" onAction="#login" prefHeight="28.0" prefWidth="124.0" text="INGRESAR" />
+    </children>
+         <padding>
+            <Insets top="25.0" />
+         </padding>
+  </VBox>
+  </children>
+   <padding>
+      <Insets top="100.0" />
+   </padding>
+</StackPane>

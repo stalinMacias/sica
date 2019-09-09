@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="container" maxWidth="500.0" prefHeight="600.0" prefWidth="496.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.pages.justificacion.Usuario_Justificar">
+   <children>
+      <HBox alignment="TOP_CENTER" spacing="20.0">
+         <children>
+            <ToggleButton fx:id="dia" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Dia">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tgroup" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="asignatura" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Asignatura" toggleGroup="$tgroup" />
+            <ToggleButton fx:id="periodo" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Periodo" toggleGroup="$tgroup" />
+         </children>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </HBox>
+      <HBox fx:id="fechasBox" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label minWidth="-Infinity" text="Fecha:" HBox.hgrow="NEVER" />
+            <Label fx:id="fecha2" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" text="Hasta:" HBox.hgrow="NEVER" />
+         </children>
+      </HBox>
+      <HBox fx:id="materiasBox" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="17.0" prefWidth="124.0" text="Materia:" HBox.hgrow="NEVER" />
+            <ComboBox fx:id="materias" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="376.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label minWidth="-Infinity" text="Seleccionar justificante:" HBox.hgrow="NEVER" />
+            <ComboBox fx:id="motivosFalta" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="281.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <HBox fx:id="fraccBox" alignment="CENTER_LEFT" spacing="10.0">
+         <children>
+            <Label minWidth="-Infinity" prefHeight="17.0" prefWidth="124.0" text="Fraccion:" HBox.hgrow="NEVER" />
+            <ComboBox fx:id="fraccJustif" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="527.0" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin></Separator>
+      <TextArea fx:id="comentario" prefHeight="33.0" prefWidth="396.0" promptText="Agregar comentario o información adicional" VBox.vgrow="ALWAYS" />
+      <VBox fx:id="archivosBox" VBox.vgrow="NEVER">
+         <children>
+            <Hyperlink onAction="#addArchivo" prefHeight="23.0" prefWidth="398.0" styleClass="hyperlink-blue" text="Seleccionar archivo justificante" />
+            <ListView fx:id="archivos" prefHeight="28.0" prefWidth="439.0" />
+         </children>
+      </VBox>
+      <VBox>
+         <children>
+            <Label text="●  El sistema de asistencia SICA le permitirá realizar justificaciones cuando usted lo solicite y sea autorizado por su jefe inmediato" wrapText="true" />
+            <Label layoutX="10.0" layoutY="10.0" text="●  Si el justificante se ingresa en tiempo y forma se considerarán efectivos para justificación, de lo contrario, serán considerados únicamente para archivo." wrapText="true" />
+            <Label layoutX="10.0" layoutY="10.0" text="● Se le recuerda que tiene 5 días hábiles posteriores a su falta para justificarla, de lo contrario se procederá conforme a la normatividad. " wrapText="true" />
+         </children>
+      </VBox>
+      <VBox fx:id="buttonBox" alignment="CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="sendButton" mnemonicParsing="false" onAction="#sendJustificante" prefHeight="30.0" prefWidth="192.0" text="Enviar justificante" />
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<MenuBar prefHeight="26.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sicaw.gui.menus.MenuController">
+  <menus>
+    <Menu mnemonicParsing="false" text="Administrar">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Mi perfil" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Usuarios" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Materias" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Horarios" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Bloques" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Instancias" />
+        <Menu mnemonicParsing="false" text="Calendario">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Calendario" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Agregar evento" />
+          </items>
+        </Menu>
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Envío de correos" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Aplicación" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Log" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Mensajes">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Personalizado" />
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="General" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Reportes">
+      <items>
+        <Menu mnemonicParsing="false" text="Asistencia">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Por día" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Por periodo" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Por asignatura" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Faltas">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="A asignaturas" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="En periodo" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Justificación">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Asignatura" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Tiempo completo" />
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Aprobar justificantes" />
+          </items>
+        </Menu>
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Registros">
+      <items>
+        <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Registros" />
+      </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="Ayuda">
+        <items>
+            <MenuItem mnemonicParsing="false" onAction="#setScreen" text="Acerca de" />
+        </items>
+    </Menu>
+    <Menu mnemonicParsing="false" text="">
+      <graphic>
+        <Text id="salir" fill="WHITE" fontSmoothingType="LCD" onMouseClicked="#exitSession" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: -fx-text-base-color;" text="Salir" />
+      </graphic>
+    </Menu>
+
+  </menus>
+</MenuBar>

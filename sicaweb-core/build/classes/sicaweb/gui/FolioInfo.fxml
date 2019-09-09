@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root fx:id="container" alignment="TOP_CENTER" prefHeight="614.0" prefWidth="751.0" style="-fx-background-color: rgba(1,1,1,0.7);" type="VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane maxHeight="470.0" maxWidth="500.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 3;" VBox.vgrow="ALWAYS">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Folio:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="13.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="folio" layoutX="57.0" layoutY="10.0" text="0001215" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" layoutX="260.0" layoutY="57.0" prefHeight="20.0" prefWidth="252.0" spacing="10.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <Label text="Estatus:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="estatus" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <GridPane layoutX="19.0" layoutY="45.0" prefHeight="309.0" prefWidth="480.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="98.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="6.0" prefWidth="14.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="10.0" prefWidth="152.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="85.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="131.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="24.0" minHeight="24.0" prefHeight="23.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="182.0" minHeight="10.0" prefHeight="82.0" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <Label text="Tipo:">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label text="Fecha:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="lfechafinal" text="Fecha final:" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label text="Materia:" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label text="Justificante:" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label text="Fracción:" GridPane.rowIndex="8">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="tipo" text="Periodo" GridPane.columnIndex="2" GridPane.columnSpan="2147483647">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="fecha" text="2014-10-25" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="materia" text="-" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="5">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="justificante" text="Clausula XX" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="fraccion" text="Fraccion III" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="8">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="fechafinal" text="2014-10-27" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label text="Comentarios:" GridPane.rowIndex="10">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="descripcion" maxWidth="360.0" text="Detalles" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="7">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <VBox GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="10" GridPane.rowSpan="2147483647">
+                     <children>
+                        <ScrollPane fitToWidth="true" prefViewportHeight="130.0" prefViewportWidth="355.0">
+                           <content>
+                              <VBox fx:id="vcomnt" maxHeight="1.7976931348623157E308" spacing="5.0" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="8" GridPane.rowSpan="2">
+                                 <GridPane.margin>
+                                    <Insets top="5.0" />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <HBox alignment="TOP_CENTER" spacing="10.0">
+                           <children>
+                              <TextField fx:id="coment" promptText="Nuevo comentario" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="8" HBox.hgrow="ALWAYS" />
+                              <Hyperlink onAction="#agregarComentario" text="Agregar" />
+                           </children>                    
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" right="10.0" top="5.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <Label text="Jefe instancia:" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="C. Personal:" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aceptado" text="Pendiente" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aprobado" text="Pendiente" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Creado:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="fechayhora" text="Periodo" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Archivo:" GridPane.rowIndex="9">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="9">
+                     <children>
+                        <Hyperlink fx:id="archivo" onAction="#downloadFile" prefHeight="23.0" prefWidth="128.0" text="FOLIO_USUARIO.PDF" HBox.hgrow="ALWAYS" />
+                        <ProgressIndicator fx:id="downloading" prefHeight="24.0" prefWidth="19.0" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="-4.0" />
+                     </GridPane.margin>
+                  </HBox>
+               </children>
+            </GridPane>
+            <ImageView fx:id="close" fitHeight="40.0" fitWidth="40.0" layoutX="371.0" layoutY="-61.0" onMouseClicked="#hide" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@images/close.png" />
+               </image></ImageView>
+            <Separator layoutX="-7.0" layoutY="39.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets top="70.0" />
+   </padding>
+</fx:root>
