@@ -4,7 +4,9 @@ import eu.schudt.javafx.controls.calendar.DatePicker;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -31,6 +33,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import sica.common.Autenticator;
+import sica.common.DBGetter;
 import sica.common.DBQueries;
 import sica.common.faltas.FaltaClase;
 import sica.common.faltas.FaltasUsuario;
@@ -48,6 +51,7 @@ public class AsignaturasController implements Initializable {
     private DatePicker desdeFecha, hastaFecha;
     private Service <ObservableList<FaltasUsuario>> service;
     
+    
     @FXML private HBox topPanel;
     @FXML private ComboBox<Departamento> departamento;
     @FXML private Button exportarBtn, imprimirBtn;
@@ -58,7 +62,9 @@ public class AsignaturasController implements Initializable {
     @FXML private TableColumn <FaltasUsuario,String> profesor;
     @FXML private TableColumn <FaltasUsuario,ObservableList<FaltaClase>> faltas;
     @FXML private TableColumn <FaltasUsuario,ObservableList<FaltaClase>> detalle;
-        
+    @FXML private TableColumn <FaltasUsuario,ObservableList<FaltaClase>> checados;
+    @FXML private TableColumn <FaltasUsuario,ObservableList<FaltaClase>> tolerancias;    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -76,7 +82,7 @@ public class AsignaturasController implements Initializable {
         departamento.getItems().clear();
         ObservableList<Departamento> departamentos = DBQueries.getDepartamentos();
         for (Departamento d : departamentos){
-            if (d.getCodigo().matches("[A-Z]*")&& !d.getCodigo().equals("NA")){
+            if ( d.getCodigo().matches("[A-Z]*")&& !d.getCodigo().equals("NA")){
                 departamento.getItems().add(d);
             }
         }
@@ -186,6 +192,7 @@ public class AsignaturasController implements Initializable {
                     
         });
         
+       
         detalle.setCellFactory(new Callback<TableColumn<FaltasUsuario,ObservableList<FaltaClase>>, TableCell<FaltasUsuario,ObservableList<FaltaClase>>>(){
             @Override public TableCell<FaltasUsuario, ObservableList<FaltaClase>> call(TableColumn<FaltasUsuario, ObservableList<FaltaClase>> p) {
                 return new TableCell<FaltasUsuario,ObservableList<FaltaClase>>(){
@@ -206,11 +213,12 @@ public class AsignaturasController implements Initializable {
                                         (f.getJustifcante()!=null && !(f.getJustifcante() instanceof Evento))){
                                     Label l = new Label(Utils.formatDate(f.getFecha())+": ");
                                     l.setTooltip(new Tooltip(Utils.formatDate(f.getFecha())));
+                                  
 
                                     Text t = new Text(f.getCrn().getCrn()+ 
                                             ", "+f.getCrn().getMateria()                                        
                                             + (f.getJustifcante()!=null? " (Justificada)":
-                                               ", "+f.getDia()+", "+f.getHorario().substring(0, 5))
+                                               ", "+f.getDia()+",  "+f.getHorario().substring(0, 5))
                                     );
 
                                     hbox.getChildren().addAll(l,t);
@@ -229,6 +237,60 @@ public class AsignaturasController implements Initializable {
                         } else {
                             setGraphic(null);
                         }                        
+                    }
+                };
+            }
+                    
+        });
+        checados.setCellFactory(new Callback<TableColumn<FaltasUsuario,ObservableList<FaltaClase>>, TableCell<FaltasUsuario,ObservableList<FaltaClase>>>(){
+            @Override public TableCell<FaltasUsuario, ObservableList<FaltaClase>> call(TableColumn<FaltasUsuario, ObservableList<FaltaClase>> p) {
+                return new TableCell<FaltasUsuario,ObservableList<FaltaClase>>(){
+                    @Override protected void updateItem(ObservableList<FaltaClase> item, boolean empty) {
+                        super.updateItem(item,empty);
+                        if (item!=null && !empty){                 
+                      //DBQueries.get_checking_regfull(inicio, fin, depa, usuario);
+                        int checado =  0;
+                            do {
+                                for (Iterator<FaltaClase> iterator = item.iterator(); iterator.hasNext();) {
+                                    FaltaClase next = iterator.next();
+                                    if (empty = checados.equals(next)) {
+                                        //ListCell(DBQueries.get_checking_regfull(inicio, fin, depa, usuario));
+                                        double USE_COMPUTED_SIZE1 = ListCell.USE_COMPUTED_SIZE;
+//                                        DBQueries _checking_regfull = DBQueries.get_checking_regfull(inicio, fin, usuario);
+                                        Bindings.size(item);
+                                        /*
+                                        aqui seria ya el metodo de filtrado
+                                        unas ves arreglando el problema de la consulta
+                                        la parte de obtencion de datos y llenado esta arriba aqui solo es 
+                                        FILTRADO
+                                        */
+                                    }
+                                }
+                            } while (desdeFecha == hastaFecha);
+                                              
+                        } else {
+                            setText("hola mundo");
+                        }
+                    }
+                };
+            }
+                    
+        });
+        
+       tolerancias.setCellFactory(new Callback<TableColumn<FaltasUsuario,ObservableList<FaltaClase>>, TableCell<FaltasUsuario,ObservableList<FaltaClase>>>(){
+            @Override public TableCell<FaltasUsuario, ObservableList<FaltaClase>> call(TableColumn<FaltasUsuario, ObservableList<FaltaClase>> p) {
+                return new TableCell<FaltasUsuario,ObservableList<FaltaClase>>(){
+                    @Override protected void updateItem(ObservableList<FaltaClase> item, boolean empty) {
+                        super.updateItem(item,empty);
+                        if (item!=null && !empty){                 
+                            checados.cellValueFactoryProperty();
+                            /*
+                            llenado de datos hecho con lo de arriba aqui solo se calcula la diferencia entre 20 minutos antes y 20 despues haciendo
+                            referencia a las otras partes del petododo de checados
+                            */
+                        } else {
+                            setText("hola mundo");
+                        }
                     }
                 };
             }
@@ -258,12 +320,15 @@ public class AsignaturasController implements Initializable {
         profesor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         faltas.setCellValueFactory(new PropertyValueFactory <>("faltas"));
         detalle.setCellValueFactory(new PropertyValueFactory <>("faltas"));
+        checados.setCellValueFactory(new PropertyValueFactory <> ("checados"));
+        tolerancias.setCellValueFactory(new PropertyValueFactory <> ("checados"));
         
         codigoProf.prefWidthProperty().bind(tabla.widthProperty().multiply(1/20f).subtract(3));
         profesor.prefWidthProperty().bind(tabla.widthProperty().multiply(4/20f).subtract(3));
         faltas.prefWidthProperty().bind(tabla.widthProperty().multiply(1/20f).subtract(3));
         detalle.prefWidthProperty().bind(tabla.widthProperty().multiply(14/20f).subtract(3));
-                
+        checados.prefWidthProperty().bind(tabla.widthProperty().multiply(4/20f).subtract(3));        
+        tolerancias.prefWidthProperty().bind(tabla.widthProperty().multiply(4/20f).subtract(3));
     }
     
     private void createDatePickers() {
@@ -278,13 +343,5 @@ public class AsignaturasController implements Initializable {
         ChangeListener<Date> chl = (ObservableValue <? extends Date> ov, Date t, Date t1) -> {
             runService(false);
         };
-        desdeFecha.selectedDateProperty().addListener(chl);
-        hastaFecha.selectedDateProperty().addListener(chl);       
-        
-        ChangeListener<Departamento> chl2 = (ObservableValue <? extends Departamento> ov, Departamento t, Departamento t1) -> {
-            runService(false);
-        };
-        departamento.getSelectionModel().selectedItemProperty().addListener(chl2);
-        
     }
 }

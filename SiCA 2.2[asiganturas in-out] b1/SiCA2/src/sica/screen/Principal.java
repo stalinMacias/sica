@@ -150,8 +150,8 @@ public class Principal extends Screen implements Initializable{
                                 
                                 
                                 //Setear la hora del equipo
-                                String hrSimple = getedTiempo.replace(".0", "");
-                                Utils.updateSistemTime(hrSimple);
+                               // String hrSimple = getedTiempo.replace(".0", "");
+                                //Utils.updateSistemTime(hrSimple);
                                 
                             }
                             

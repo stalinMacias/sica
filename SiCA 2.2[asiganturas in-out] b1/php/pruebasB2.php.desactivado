@@ -1,0 +1,500 @@
+<?php		
+	date_default_timezone_set("America/Mexico_City");
+	$globalsPath =  dirname(dirname(__FILE__))."\globals.php";  
+	include_once($globalsPath);
+
+	//include_once("conectar.php");
+	include_once("class.phpmailer.php"); 
+	include_once("class.smtp.php");	
+
+	$dbhostP = "148.202.87.174"; //host de pruebas "127.0.0.1";
+
+	//-----------------------------------------------
+	// funciones
+	function imprimirLst($lstFaltas){
+		echo "<br/>=========================================================================================";
+		echo "<br/>Imprimiendo lista";
+		echo "<br/>=========================================================================================";
+		for($i=0; $i<count($lstFaltas); $i++ ){
+			echo "<br/><br/>";
+			$fila = $lstFaltas[$i];
+			echo "fila: $i";
+			//var_dump($fila);
+			var_dump($fila["nombre"]);
+			var_dump($fila["crn"]);
+		}
+		echo "<br/>=========================================================================================";
+	}
+	//-----------------------------------------------
+
+
+	println("Hola mundo");
+	//===========================================================
+	//		Ejecutador de Correo "entrada" o Correo "entysal"
+	//===========================================================
+	$link = mysqli_connect($dbhostP, "frank", "frankvalles65", "checador");
+
+	println("Error ??? " . mysqli_connect_error() );
+	$query = "SELECT `CURRENT_LAPSO`();";
+	//===========================================================
+
+	$res = mysqli_query($link, $query);
+	$fila = mysqli_fetch_row($res); //row es para obtener el array enumerado en lugar de asociativo
+
+	if(  strcmp( $fila[0] , "entysal") == 0 ){ //si current_lapso es igual a "entysal"
+		// Se ejecuta la version para faltas a clases de ent y sal
+		$hora = date("H");
+
+		//Consultar tabla horarioscrn_hrs
+		$link = mysqli_connect($dbhostP, "frank", "frankvalles65", "checador");
+		$query = "SELECT * FROM `horarioscrn_hrs` ;";
+		$resultH = mysqli_query($link, $query);
+		var_dump($resultH);
+		echo "<br/> Error!!!! " . mysqli_error($link);
+		echo "<br/><h1> hola 1 </h1><br/>";
+		while($row = mysqli_fetch_assoc($resultH)){
+			echo "<br/><h1> hola 2 </h1><br/>";
+			$duracion = $row["duracion"];
+			$horax = $hora - $duracion; //por ejemp: son las 16:00 - 2:00 = 14:00 hrs consulta con duracion 2 hrs.
+			echo " <hr size=2px color=blue />";
+			echo "<br> hora anterio = $horax , hora actual = $hora , duracion = $duracion <br/>";
+			//var_dump($horax);
+			//var_dump($hora);
+			//var_dump($duracion);
+			echo "<p> se ejecutara correos_eys($horax, $duracion) </p> ";
+			correos_eys($horax, $duracion);
+		}
+		mysqli_close($link);
+
+
+	} else {
+		//se eejcuta la version clasica para falta a clases tradicional
+		
+		//comentando de ientras para hacer pruebas
+		//correos(); 
+		echo "Se ejecuto para correo simple";
+
+	}
+
+
+
+
+//no tengo idea si esto funcionara
+function correos_eys($hora, $duracion){ 
+if (  $hora == 7 || $hora==8 || $hora==9  || $hora==10 || $hora==11 || $hora==12 || $hora==13 || $hora==14 || $hora==15 || $hora==16 || $hora==17 || $hora==18 ) {
+
+
+
+
+
+	//-----------------------------------------------
+	// VARIABLES
+	//hacerlas globales para que se referencia al exterior de esta funcion
+	global $lstFaltasE;
+	global $lstFaltasS;
+	global $lstFaltasEYS;
+
+	global $link2;
+
+	global $host;
+	global $dbhostP;
+	global $user;
+	global $password;
+	global $db;
+	global $dir;
+
+	$today = date("d/m/Y");
+	//-----------------------------------------------
+
+
+	//--------------------------------------
+	// limpiar las listas antes de terminar
+	println("Se limpiaran las listas con unset");
+	$lstFaltasEYS = array();
+	$lstFaltasE = array();
+	$lstFaltasS = array();
+	$lstFaltas = array(); 
+	//--------------------------------------
+
+
+
+	println("IMPRIMENDO LISTAS ANTES DE LLENARLAS !!!!!!!!!!!!!!!!!!");
+	println("imprimiendo las listas");
+	imprimirLst($lstFaltasE);
+	imprimirLst($lstFaltasS);
+	imprimirLst($lstFaltasEYS);
+	printLN("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+
+
+	//----------------------------------------------
+	// establecer conexion con la DB
+	println("estableciendo conexion con la DB: link2");
+	$link2 = mysqli_connect($dbhostP, $user, $password, $db);
+	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+	//----------------------------------------------
+	// preparar SuperQuery
+	//$query  = "CALL get_faltas_clases_hora_eys('$hora:00:00','02:00:00');";
+	$query = "CALL get_faltas_clases_hora_e('$hora:00:00','$duracion');";
+	$query .= "CALL get_faltas_clases_hora_s('$hora:00:00','$duracion');";
+	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	println("se usara el QUERY: " . $query);
+
+
+	/* ejecutar multi consulta */
+	$paso = 1; //omitimos el 0 por no cosiderarlo necesario, faltara depurar el codigo
+	//mysqli_next_result($link2);
+	if (mysqli_multi_query($link2, $query)) {
+		println("mysqli_multi_query si produjo resultados...");
+	    while(mysqli_more_results($link2)){
+	    	println("mysql_more_results si contiene mas resultados");
+	        
+	        // almacenar cada juego de resultados 
+	        if ($result = mysqli_store_result($link2)) {
+	        	println("result obtenido de mysqli_store_result: " . var_dump($result) );
+
+	        	println("switch ejecutandose con paso= $paso");
+	        	switch($paso){
+	        		case 0: // caso EYS
+	        			/*
+		        		while ($row = mysqli_fetch_assoc($result)) {
+		        			$lstFaltasEYS[] = $row;
+		            	}
+		            	mysqli_free_result($result);
+		            	imprimirLst($lstFaltasEYS);
+						*/
+	        			break;
+        			case 1: //	caso E 
+        				echo "<br><p style=color:red> Caso 1 - E sucediendo </p><br/> ";
+        				//#b obtener faltas de entrada y agregarlas a lstFaltasE
+        				while ($row = mysqli_fetch_assoc($result)) {
+        					echo "<br><p style=color:blue> CASO 1: agregando reg a lstFaltasE: " . $row["nombre"] . "</p><br/> ";
+		        			$lstFaltasE[] = $row;
+		            	}
+        				echo "<br/> error mysqli_fetch_assoc " . mysqli_error($link2);
+        				echo "<br/> codigo de error errno: " . mysqli_errno($link2);
+
+		            	mysqli_free_result($result);
+		            	//imprimirLst($lstFaltasE);
+        				break;
+    				case 2: // caso S
+    					echo "<br><p style=color:red> Caso 2 - S sucediendo </p><br/> ";
+    					//#c obtener faltas de salida y agregarlas a lstFaltasS
+    					while ($row = mysqli_fetch_assoc($result)) {
+    						echo "<br><p style=color:blue> CASO 2: agregando reg a lstFaltasS: " . $row["nombre"] . "</p><br/>  ";
+		        			$lstFaltasS[] = $row;
+		            	}
+		            	mysqli_free_result($result);
+		            	//imprimirLst($lstFaltasS);
+    					break;
+					deafault:
+						echo "<br/>Error, valor de paso para el switch incorrecto: $paso <br/>" ;
+	        	}
+	        	$paso++;
+
+	        }else {echo "<br/>sin resultados<br/>"; }
+
+
+	        
+	        // no se si sea necesario pero me funciona jaja
+	        if (mysqli_more_results($link2)) {
+	            mysqli_next_result($link2);
+	        }
+	    }
+
+
+	        //------------------------------------------------------------------------------------
+	        //#d hay CHODS iguales entre lstFaltasE y lstFaltasS? (CHOD = "" + CRN + hora + día)
+	        //primero se crean copias para poder eliminar elementos sin problemas con los for
+	        $lstFaltasE_aux = $lstFaltasE;
+	        $lstFaltasS_aux = $lstFaltasS;
+	        //hay que comparar listas generando chods
+	        for($a=0; $a<count($lstFaltasE_aux); $a++){
+	        	$chodE = $lstFaltasE_aux[$a]["crn"] . $lstFaltasE_aux[$a]["horario"] . $lstFaltasE_aux[$a]["dia"];
+	        	for($b=0; $b<count($lstFaltasS_aux); $b++ ){
+	        		//concatenar el texto
+	        		$chodS = $lstFaltasS_aux[$b]["crn"] . $lstFaltasS_aux[$b]["horario"] . $lstFaltasS_aux[$b]["dia"];
+
+	        		//comparar los CHODs
+	        		//#d hay chods iguales?
+	        		if(strcmp($chodE, $chodS) == 0){ 
+	        			//#e agregarlos a faltasEYS
+	        			$lstFaltasEYS[] = $lstFaltasE_aux[$a];
+	        			//generamos un array de con los indices de los elementos a eliminar
+
+	        			unset($lstFaltasE[$a]);
+	        			unset($lstFaltasS[$b]);
+	        		}
+	        	}
+	        }
+	} else {echo "error al ejecutar el multi query: " . mysqli_error($link2);}
+	println("Cerrando conexion link2");
+	mysqli_close($link2);
+
+	//Reoerdenar los arryas, ya que se quedan vacios los elimiados.
+	println("Reordenando los arrays");
+	if(count($lstFaltasE) > 0){ //si no esta vacia
+		$lstFaltasE = array_values($lstFaltasE);
+	}
+	if(count($lstFaltasS) > 0 ) {
+		$lstFaltasS = array_values($lstFaltasS);
+	}
+
+
+	println("imprimiendo las listas");
+	imprimirLst($lstFaltasE);
+	imprimirLst($lstFaltasS);
+	imprimirLst($lstFaltasEYS);
+
+
+	//envio de correos
+	println("Se enviaran los correos para faltas completas");
+	//#f enviar corroes faltas completas
+	for($d=0; $d < count($lstFaltasEYS); $d++) {
+		//limpiamos $row por si acaso contiene cosas
+		unset($row);
+		$row = $lstFaltasEYS[$d];
+		if (filter_var($row["correo"], FILTER_VALIDATE_EMAIL)) {
+					    //enviar email
+
+					    $mail = new PHPMailer(); 
+						$mail->IsSMTP(); 
+						$mail->SMTPAuth = false; 
+						//$mail->SMTPSecure = "ssl"; 
+						
+						$mail->Host = MAIL_HOST; 
+						$mail->Port = MAIL_PORT; 
+						$mail->Username = MAIL_USERNAME; 
+						$mail->Password = MAIL_PASSWORD;
+
+						$mail->SetFrom (MAIL_USERNAME,"Sistema de Control de Asistencia(SiCA) CUVALLES"); 
+						/* $mail->AddReplyTo('carmen.hernandez@valles.udg.mx',"Carmen Elvira Hernandez"); */
+
+						$mail->Subject = "CUVALLES SICA - Falta a asignatura"; 
+						$mail->AltBody = "Correo de incidencia"; 
+						
+						$mensaje = "<div align='justified'>	<p><b>Acad&eacute;mico $row[nombre] </b></p>
+							<p align='justify'>Se ha generado una falta en el sistema el d&iacute;a <b>$row[dia] $today</b>, en la materia <b>$row[materia] ($row[crn])</b> registrada en el horario <b>$row[horario] hrs.</b> por ausencia de registros de entrada y salida. Deber&aacute; acudir con su Jefe de Departamento a efectuar la justificaci&oacute;n correspondiente; se le recuerda que tiene 5 d&iacute;as h&aacute;biles para presentarla, de lo contrario se proceder&aacute; conforme a la normatividad.</p>
+							<p align='justify' style='color:grey;'>Este es un correo autom&aacute;tico generado por el Sistema de Control de Asistencia (SICA) del Centro Universitario de los Valles de la Universidad de Guadalajara. No es necesario que responda a este correo.</p> 
+							<p>Sistema de Control de Asistencia, CUVALLES.</p></div>"; 		//Favor de atender esta notificaci&oacute;n conforme se indica. se elimino del correo auntomatico indicaciones de Marco Tulio			
+
+
+						$mail->MsgHTML($mensaje);
+						$mail->IsHTML(true); 
+						$mail->AddAddress("msldeg@yahoo.com.mx",$row["nombre"]);  //($row["correo"],$row["nombre"]);					
+						$mail->AddCC("buzonsica@valles.udg.mx","SiCA");
+
+						$flag = false;
+						for ($i=1 ; $i<4 && !$flag ; $i++){
+							set_time_limit(60);
+							$flag = $mail->Send();
+							if(!$flag) { 
+								echo "Error: " . $mail->ErrorInfo."</br>"; 
+							} else { 
+								echo "Mensaje enviado correctamente</br>"; 
+							}
+						}
+						
+		} else {
+			echo "Error: usuario no cuenta con correo electronico o este es invalido</br>";
+		}
+
+	}
+
+	println("Se enviaran los correos para faltas de entradas");
+	//#g enviar correos falta entradas
+	for($f=0; $f < count($lstFaltasE); $f++) {
+		//limpiamos $row por si acaso contiene cosas
+		unset($row);
+		$row = $lstFaltasEYS[$f];
+		if (filter_var($row["correo"], FILTER_VALIDATE_EMAIL)) {
+					    //enviar email
+
+					    $mail = new PHPMailer(); 
+						$mail->IsSMTP(); 
+						$mail->SMTPAuth = false; 
+						//$mail->SMTPSecure = "ssl"; 
+						
+						$mail->Host = MAIL_HOST; 
+						$mail->Port = MAIL_PORT; 
+						$mail->Username = MAIL_USERNAME; 
+						$mail->Password = MAIL_PASSWORD;
+
+						$mail->SetFrom (MAIL_USERNAME,"Sistema de Control de Asistencia(SiCA) CUVALLES"); 
+						/* $mail->AddReplyTo('carmen.hernandez@valles.udg.mx',"Carmen Elvira Hernandez"); */
+
+						$mail->Subject = "CUVALLES SICA - Falta a asignatura"; 
+						$mail->AltBody = "Correo de incidencia"; 
+						
+						$mensaje = "<div align='justified'>	<p><b>Acad&eacute;mico $row[nombre] </b></p>
+							<p align='justify'>Se ha generado una falta en el sistema el d&iacute;a <b>$row[dia] $today</b>, en la materia <b>$row[materia] ($row[crn])</b> registrada en el horario <b>$row[horario] hrs.</b> por ausencia de registro de entrada. Deber&aacute; acudir con su Jefe de Departamento a efectuar la justificaci&oacute;n correspondiente; se le recuerda que tiene 5 d&iacute;as h&aacute;biles para presentarla, de lo contrario se proceder&aacute; conforme a la normatividad.</p>
+							<p align='justify' style='color:grey;'>Este es un correo autom&aacute;tico generado por el Sistema de Control de Asistencia (SICA) del Centro Universitario de los Valles de la Universidad de Guadalajara. No es necesario que responda a este correo.</p> 
+							<p>Sistema de Control de Asistencia, CUVALLES.</p></div>"; 		//Favor de atender esta notificaci&oacute;n conforme se indica. se elimino del correo auntomatico indicaciones de Marco Tulio			
+
+
+						$mail->MsgHTML($mensaje);
+						$mail->IsHTML(true); 
+						$mail->AddAddress("msldeg@yahoo.com.mx",$row["nombre"]); //($row["correo"],$row["nombre"]);			
+						$mail->AddCC("buzonsica@valles.udg.mx","SiCA"); 
+
+						$flag = false;
+						for ($i=1 ; $i<4 && !$flag ; $i++){
+							set_time_limit(60);
+							$flag = $mail->Send();
+							if(!$flag) { 
+								echo "Error: " . $mail->ErrorInfo."</br>"; 
+							} else { 
+								echo "Mensaje enviado correctamente</br>"; 
+							}
+						}
+						
+		} else {
+			echo "Error: usuario no cuenta con correo electronico o este es invalido</br>";
+		}
+
+	}
+
+	println("Se enviaran los correos para faltas de salidas");
+	//#h enviar corroes falta salidas
+	for($g=0; $g < count($lstFaltasS); $g++) {
+		//limpiamos $row por si acaso contiene cosas
+		unset($row);
+		$row = $lstFaltasEYS[$g];
+		if (filter_var($row["correo"], FILTER_VALIDATE_EMAIL)) {
+					    //enviar email
+
+					    $mail = new PHPMailer(); 
+						$mail->IsSMTP(); 
+						$mail->SMTPAuth = false; 
+						//$mail->SMTPSecure = "ssl"; 
+						
+						$mail->Host = MAIL_HOST; 
+						$mail->Port = MAIL_PORT; 
+						$mail->Username = MAIL_USERNAME; 
+						$mail->Password = MAIL_PASSWORD;
+
+						$mail->SetFrom (MAIL_USERNAME,"Sistema de Control de Asistencia(SiCA) CUVALLES"); 
+						/* $mail->AddReplyTo('carmen.hernandez@valles.udg.mx',"Carmen Elvira Hernandez"); */
+
+						$mail->Subject = "CUVALLES SICA - Falta a asignatura"; 
+						$mail->AltBody = "Correo de incidencia"; 
+						
+						$mensaje = "<div align='justified'>	<p><b>Acad&eacute;mico $row[nombre] </b></p>
+							<p align='justify'>Se ha generado una falta en el sistema el d&iacute;a <b>$row[dia] $today</b>, en la materia <b>$row[materia] ($row[crn])</b> registrada en el horario <b>$row[horario] hrs.</b> por ausencia de registro de salida. Deber&aacute; acudir con su Jefe de Departamento a efectuar la justificaci&oacute;n correspondiente; se le recuerda que tiene 5 d&iacute;as h&aacute;biles para presentarla, de lo contrario se proceder&aacute; conforme a la normatividad.</p>
+							<p align='justify' style='color:grey;'>Este es un correo autom&aacute;tico generado por el Sistema de Control de Asistencia (SICA) del Centro Universitario de los Valles de la Universidad de Guadalajara. No es necesario que responda a este correo.</p> 
+							<p>Sistema de Control de Asistencia, CUVALLES.</p></div>"; 		//Favor de atender esta notificaci&oacute;n conforme se indica. se elimino del correo auntomatico indicaciones de Marco Tulio			
+
+
+						$mail->MsgHTML($mensaje);
+						$mail->IsHTML(true); 
+						$mail->AddAddress("msldeg@yahoo.com.mx",$row["nombre"]); //($row["correo"],$row["nombre"]);					
+						$mail->AddCC("buzonsica@valles.udg.mx","SiCA");
+
+						$flag = false;
+						for ($i=1 ; $i<4 && !$flag ; $i++){
+							set_time_limit(60);
+							$flag = $mail->Send();
+							if(!$flag) { 
+								echo "Error: " . $mail->ErrorInfo."</br>"; 
+							} else { 
+								echo "Mensaje enviado correctamente</br>"; 
+							}
+						}
+						
+		} else {
+			echo "Error: usuario no cuenta con correo electronico o este es invalido</br>";
+		}
+
+	}
+
+
+
+
+}// llave de cierre del if de horas
+}
+
+
+
+
+
+function correos(){
+$hora = date("H") - 2;	
+
+	if ($hora == 8 || $hora==10 || $hora==12 || $hora==14 || $hora==16 ){	
+		//include_once("conectar.php");
+		//include_once("class.phpmailer.php"); 
+		//include_once("class.smtp.php");	
+
+		$query = "CALL get_faltas_clases_hora('$hora:00:00')";
+		//echo $query;
+		
+		if ($result = mysqli_query($con, $query)) {
+			$today = date("d/m/Y");  
+
+			while($row = mysqli_fetch_assoc($result)) {
+				//echo var_dump($row);
+
+				if (filter_var($row["correo"], FILTER_VALIDATE_EMAIL)) {
+				    //enviar email
+
+				    $mail = new PHPMailer(); 
+					$mail->IsSMTP(); 
+					$mail->SMTPAuth = false; 
+					//$mail->SMTPSecure = "ssl"; 
+					
+					$mail->Host = MAIL_HOST; 
+					$mail->Port = MAIL_PORT; 
+					$mail->Username = MAIL_USERNAME; 
+					$mail->Password = MAIL_PASSWORD;
+
+					$mail->SetFrom (MAIL_USERNAME,"Sistema de Control de Asistencia(SiCA) CUVALLES"); 
+					/* $mail->AddReplyTo('carmen.hernandez@valles.udg.mx',"Carmen Elvira Hernandez"); */
+
+					$mail->Subject = "CUVALLES SICA - Falta a asignatura"; 
+					$mail->AltBody = "Correo de incidencia"; 
+					
+					$mensaje = "<div align='justified'>	<p><b>Acad&eacute;mico $row[nombre] </b></p>
+						<p align='justify'>Se ha generado una falta en el sistema el d&iacute;a <b>$row[dia] $today</b>, en la materia <b>$row[materia] ($row[crn])</b> registrada en el horario <b>$row[horario] hrs.</b> por ausencia de registro. Deber&aacute; acudir con su Jefe de Departamento a efectuar la justificaci&oacute;n correspondiente; se le recuerda que tiene 5 d&iacute;as h&aacute;biles para presentarla, de lo contrario se proceder&aacute; conforme a la normatividad.</p>
+						<p align='justify' style='color:grey;'>Este es un correo autom&aacute;tico generado por el Sistema de Control de Asistencia (SICA) del Centro Universitario de los Valles de la Universidad de Guadalajara. No es necesario que responda a este correo.</p> 
+						<p>Sistema de Control de Asistencia, CUVALLES.</p></div>"; 		//Favor de atender esta notificaci&oacute;n conforme se indica. se elimino del correo auntomatico indicaciones de Marco Tulio			
+
+
+					$mail->MsgHTML($mensaje);
+					$mail->IsHTML(true); 
+					$mail->AddAddress("msldeg@yahoo.com.mx",$row["nombre"]); //($row["correo"],$row["nombre"]);					
+					$mail->AddCC("buzonsica@valles.udg.mx","SiCA");
+
+					$flag = false;
+					for ($i=1 ; $i<4 && !$flag ; $i++){
+						set_time_limit(60);
+						$flag = $mail->Send();
+						if(!$flag) { 
+							echo "Error: " . $mail->ErrorInfo."</br>"; 
+						} else { 
+							echo "Mensaje enviado correctamente</br>"; 
+						}
+					}
+					
+				} else {
+					echo "Error: usuario no cuenta con correo electronico o este es invalido</br>";
+				}
+			}
+			mysqli_free_result($result);
+
+		} else {
+			echo mysqli_error($con);
+		}
+	} else {
+		echo $hora.":00:00";
+	}
+}
+
+
+function println($mensaje){
+	echo "<p style=font-family:verdana;color:#456780 > # $mensaje <p>";
+
+}
+
+
+?>

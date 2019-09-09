@@ -71,7 +71,7 @@ abstract class Export extends Reporte implements Runnable {
         
         fila = hoja.createRow(filas++);                     
         celda = fila.createCell(0);  
-        celda.setCellValue("Fuente: CUVALLES. Secretaria Administrativa, Coordinación de Personal");        
+        celda.setCellValue("Fuente: CUSUR. Secretaria Administrativa, Coordinación de Personal");        
         celda.setCellStyle(end);
                 
         fila = hoja.createRow(filas++);        

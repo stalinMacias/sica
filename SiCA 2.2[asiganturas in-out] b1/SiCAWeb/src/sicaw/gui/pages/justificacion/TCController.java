@@ -98,7 +98,7 @@ public class TCController implements Initializable {
         
         if ( !tablaUsuarios.getSelectionModel().isEmpty() &&
                 !justNew.getSelectionModel().isEmpty() && 
-                !(justNew.getSelectionModel().getSelectedItem().getFracciones().size()>0 &&                
+                !(justNew.getSelectionModel().getSelectedItem().getFracciones().size()>=1 &&                
                  fraccNew.getSelectionModel().isEmpty()) &&
                 desdeFecha.getSelectedDate() != null &&
                 hastaFecha.getSelectedDate() != null &&

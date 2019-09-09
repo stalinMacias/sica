@@ -115,9 +115,11 @@ public class LocalDB {
     }
     
     public static Usuario getUsuario(String usr){                        
-        for ( Usuario u : getUsuarios() )
+        for ( Usuario u : getUsuarios() ) {
+            System.out.println(u.getNombre());
             if (u.getCodigo().equals(usr))
                 return u;
+        }
         
         return em.find(Usuario.class, usr);
     }

@@ -16,7 +16,7 @@ public class Main extends Application {
         System.out.println("SicaWeb - Version 2.5.1");
                 
         String server = getParameters().getNamed().get("host");
-        Configs.SERVER.set(server!=null? server : "http://localhost/sica");// http://148.202.89.3/sica http://localhost/sica
+        Configs.SERVER.set(server!=null? server : "http://127.0.0.1/sica");// http://148.202.89.3/sica http://localhost/sica
         sica.common.DBQueries.setDBGetter(new DBGetterFromJSON(Configs.SERVER.get()));
         System.out.println("Conectando a "+Configs.SERVER.get());
         

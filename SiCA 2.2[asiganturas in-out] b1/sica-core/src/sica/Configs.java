@@ -55,7 +55,9 @@ public class Configs extends sica.common.Configs {//"148.202.89.3");
     }
     
        
-    public static void loadLocalConfig(boolean reset){        
+    public static void loadLocalConfig(boolean reset){ 
+        
+        
         Preferences prefsRoot = Preferences.userRoot(); 
         try {             
             boolean finded = prefsRoot.nodeExists(sica.common.Configs.class.getName());
@@ -68,8 +70,20 @@ public class Configs extends sica.common.Configs {//"148.202.89.3");
             } else {
                 loadConfigs();
             }           
+            
+            
+            SERVER = new ConfigProperty<>("hostserver","http://127.0.0.1/sica"); 
+            HOST = new ConfigProperty<>("host",   "127.0.0.1");
+            BASEDEDATOS = new ConfigProperty<>("basededatos",  "checador");    
+            PORT = new ConfigProperty<>("puerto","3306");
+            USER = new ConfigProperty<>("usuario","frank"); //frank
+            PASSWORD = new ConfigProperty<>("pass","frankvalles65"); //frankvalles65
+            
+            saveDefaults();
+            
             printConfigs();
             
+            //saveDefaults();
             //Agregando el nombre de equipo a las preferencias
             EQUIPO_NOMBRE.set( getEquipoNombre() );
             

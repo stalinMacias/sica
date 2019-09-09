@@ -9,9 +9,13 @@ public class FaltaClase extends Falta {
     private String horario;
     private String dia;   
     private JustificanteInterface justifcante;
+    private String checado;
         
     public Crn getCrn() {
         return crn;
+    }
+    public String getChecado(){
+        return checado;
     }
 
     public void setCrn(Crn crn) {
@@ -41,6 +45,13 @@ public class FaltaClase extends Falta {
     public void setDia(String dia) {
         this.dia = dia;
     }
+    public void setChecado(String checado){
+        this.checado= checado;
+    }
+    public void getChecado(String checado){
+        this.checado = checado;
+    }
+           
     
     
     

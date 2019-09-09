@@ -2,8 +2,11 @@ package sica.common;
 
 import java.util.Calendar;
 import javafx.collections.ObservableList;
+import javafx.scene.control.TableColumn;
 import sica.common.asistencias.AsistenciaClase;
 import sica.common.asistencias.AsistenciaUsuario;
+import sica.common.faltas.FaltaClase;
+import sica.common.faltas.FaltasUsuario;
 import sica.common.horarios.HorarioCrn;
 import sica.common.horarios.HorarioUsuario;
 import sica.common.justificantes.Comentario;
@@ -178,11 +181,12 @@ public class DBQueries {
     }
     
     public static boolean addCorreoUsuario(String usr, String correo){
+        log("Añade correo: "+correo+", al usuario "+usr);
+         
         String query  = String.format(
                 "CALL add_correo_usuario('%s','%s')",
                 usr,
                 correo);
-        log("Añade correo: "+correo+", al usuario "+usr);
         return new PHPExecuter(query).getResponse();
     }
     
@@ -315,6 +319,10 @@ public class DBQueries {
     
     public static boolean insertUsuario(String cod, String nom, int tipo, 
             int status, String depto, String telefono, String coment){
+        
+        log("Crea nuevo usuario: "+cod+", "+nom);
+        
+        
         String query  = String.format(
             "INSERT INTO usuarios (usuario, nombre, tipo, status, departamento,"
             + "telefono,comentario) VALUES ('%s','%s','%d','%d','%s','%s','%s')",
@@ -325,14 +333,16 @@ public class DBQueries {
             depto,
             telefono,
             coment);
-        log("Crea nuevo usuario - Codigo: "+cod+", Nombre: "+nom);
+
         return new PHPExecuter(query).getResponse();        
         
     }
     
     public static boolean updateUsuario(String cod, String nom, int tipo, int status, 
             String depto, String telefono, String coment){
-        System.out.println("Ingresando al metodo updateUsuario");
+     
+        log("Actualiza los datos del usuario: "+cod);
+        
         String query  = String.format(
             "UPDATE usuarios SET nombre = '%s', tipo = '%d', status = '%d', "
             + "departamento = '%s', telefono = '%s', comentario = '%s' "
@@ -344,8 +354,7 @@ public class DBQueries {
             telefono,
             coment,
             cod);
-        
-        log("Actualiza los datos del usuario: "+cod);
+
         return new PHPExecuter(query).getResponse();        
       
     }
@@ -681,6 +690,8 @@ public class DBQueries {
         
         return new PHPExecuter(query).getResponse();        
     }
+   
+    
 
     /* Por que estara comentado? */
     
@@ -696,10 +707,7 @@ public class DBQueries {
     }    */
     
     
-    public static void log (String desc){ 
-        //System.out.println("Ingesando al metodo log con este dato de entrada: " + desc);
-        //System.out.println("Current User's Code: "+Autenticator.getCurrentUser().getCodigo());
-
+    public static void log (String desc){    
         String query  = String.format(
                 "INSERT INTO log (usuario,fecha,descripcion) VALUES ('%s',NOW(),'%s')",
                 Autenticator.getCurrentUser().getCodigo(),
@@ -707,11 +715,13 @@ public class DBQueries {
 
         boolean respuesta = new PHPExecuter(query).getResponse();    
         if(respuesta){
-            System.out.println("Resultado: TRUE!");
+            //System.out.println("Resultado: TRUE!");
         }else{
             System.out.println("Problema ejecutando el Query: " + query);
             System.out.println("Resultado: FALSE!!!");
-        } 
+        }
+        
+        
     }
     
 
@@ -724,6 +734,7 @@ public class DBQueries {
     public static ObservableList<TipoJustificante> getJustificantesListaTipoUsuario(String tipo){
         return dbGetter.getList(
                 "CALL get_lista_justificantes_tipousuario('"+tipo+"')",
+                
                 TipoJustificante.class);
     }
     
@@ -896,6 +907,13 @@ public class DBQueries {
                 HorarioCrn.class);
         
     }
+    public static ObservableList<HorarioCrn> get_checking_regfull(String inicio, String fin,String usuario){
+        return dbGetter.getList(
+                "SELECT * FROM registrosfull Where registrosfull.fechahora Between '"+inicio+"'AND"+fin+"' "
+                +"'AND"+usuario+"''",
+                HorarioCrn.class);
+        
+    }
     
     public static ObservableList<HorarioCrn> getMateriasParaAsistenciaPeriodoJefe(String inicio, String fin, String depa, String jefe){
         return dbGetter.getList(
@@ -987,7 +1005,22 @@ public class DBQueries {
         return dbGetter.getList("CALL get_horario_actual_usuario("+usr+")",
                 HorarioUsuario.class);       
     }
+    public static ObservableList<HorarioCrn> getChecado(String usuario){
+        return dbGetter.getList("SELECT * FROM registrosfull where usuario= "+usuario,HorarioCrn.class);
+    }
+     public static ObservableList<HorarioCrn> get_Full_Checado(String inicio, String fin,String usuario){
+        return dbGetter.getList(
+                "SELECT * FROM registrosfull Where registrosfull.fechahora Between '"+inicio+"'AND"+fin+"' "
+                +"'AND"+usuario+"''",
+                HorarioCrn.class);
         
+    }
+    
+   /* public static String RegistrarTolerancia(String codigo, String horafecha){
+       
+       return dbGetter.getList("SELECT * FROM registrosfull SET fechahora = CONCAT(DATE(fechahora),'%s')"
+               +"where usuario = '%s'",horafecha,codigo);
+   }    
     
     /*
     
@@ -1502,4 +1535,20 @@ public class DBQueries {
     }
 }
 */
+
+    /*public static String getTolerancia(ObservableList<FaltaClase> item) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void getChecado(TableColumn<FaltasUsuario, String> codigoProf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void getChecado(TableColumn<FaltasUsuario, String> codigoProf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void getChecado(TableColumn<FaltasUsuario, String> codigoProf) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
 }

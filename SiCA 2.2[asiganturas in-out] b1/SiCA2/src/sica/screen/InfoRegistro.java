@@ -122,17 +122,41 @@ public class InfoRegistro  extends Screen implements Initializable{
         
                  
         if (ConnectionServer.isConnected()){
-            log.info("Descargando foto {}", data.getFoto());  
-            Image imagen = new Image(data.getFoto());
+            log.info("Descargando foto: " + data.getFoto());  
+            //System.out.println("foto: "data.getFoto(fotoUser));
+            try {
+                
+            } catch (Exception e) {
+            }
+ 
+           Image imagen;
+            //Image imagen = new Image(data.getFoto()+"");//data.getFoto());
+            //Image imagen = new Image("http://148.202.119.37/sica/Fotos/+"colecion"+.jpg");
+            try{
+                String newUrl = "" + data.getFoto() + "";
+                System.out.println("///////////////////////////");
+                System.out.println("La foto a mostrar es:" + newUrl);
+                imagen = new Image(newUrl);
+                
+                
+                log.info("1) se creo objeto image: ");
+                System.out.println("");
+                if (!imagen.isError()){
+                    log.info("2) no error con imagen");
+                    fotoUser.setImage(imagen);
+                    fotoUser.setPreserveRatio(true);
 
-            if (!imagen.isError()){
-                fotoUser.setImage(imagen);
-                fotoUser.setPreserveRatio(true);
-
-            } else {
-                log.info("Error descargando foto ");
-                fotoNoDisponible();            
-            }  
+                } else {
+                    log.info("Error descargando foto ");
+                    fotoNoDisponible();            
+                }  
+                
+                
+            } catch(NullPointerException | IllegalArgumentException e){
+                System.out.println("Error al generar la imagen!!!: " + e.getMessage());
+            }
+            
+            
         } else {
             fotoNoDisponible();            
         }
