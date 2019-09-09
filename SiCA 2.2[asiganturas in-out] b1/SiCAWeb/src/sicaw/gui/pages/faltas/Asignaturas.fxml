@@ -45,6 +45,8 @@
             <TableColumn fx:id="profesor" prefWidth="75.0" text="Profesor" />
             <TableColumn fx:id="faltas" prefWidth="75.0" text="Faltas" />
             <TableColumn fx:id="detalle" prefWidth="75.0" text="Detalles" />
+                  <TableColumn fx:id="checados" prefWidth="75.0" text="Checados" />
+                  <TableColumn fx:id="tolerancias" prefWidth="75.0" text="Tolerancia" />
           </columns>
         </TableView>
             <ProgressIndicator fx:id="progress" maxHeight="150.0" progress="0.0" />

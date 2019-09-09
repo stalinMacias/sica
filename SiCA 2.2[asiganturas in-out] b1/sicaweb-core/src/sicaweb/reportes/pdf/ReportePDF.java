@@ -91,7 +91,7 @@ public abstract class ReportePDF extends Reporte implements Runnable {
     }
         
     private void addEndLegend(Document document) throws DocumentException {
-        Paragraph p = new Paragraph("Fuente: CUVALLES. Secretaria Administrativa, Coordinación de Personal" 
+        Paragraph p = new Paragraph("Fuente: CUSUR. Secretaria Administrativa, Coordinación de Personal" 
                 + "\nCorte: "+df.format(Calendar.getInstance().getTime()).toUpperCase());
         p.setSpacingBefore(10);
         p.setAlignment(Paragraph.ALIGN_CENTER);

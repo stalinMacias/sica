@@ -18,4 +18,8 @@ public abstract class DBGetter {
 
         return fields;
     }
+
+    String getList(String string, String hora, String codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

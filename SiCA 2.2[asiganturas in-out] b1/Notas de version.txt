@@ -33,3 +33,8 @@ Notas de Verisón:
 	- Agregado ventana "Acerca de" en menú "Ayuda"
 	- Esta versión está configurada para localhost (no estoy seguro, comprobar)	
 	- posblemente: Se asignó un FAR (rango de falsos positivos) más pequeño:
+
+> SiCA2 2017-06-14
+	-agregado un cambio en el inicio
+	-esta version tiene un algoritmo que borra y bloque aobjetos junto con instancias
+	-optimisacion de recursos y localDataBase

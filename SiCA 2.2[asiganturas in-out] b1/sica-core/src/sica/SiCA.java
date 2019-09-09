@@ -29,8 +29,11 @@ public class SiCA  {
             
         } else {      
             
-            // Carga la configuracion fuentes e inicia la conexion a los servidores
-            Configs.loadLocalConfig(reset);            
+            
+// Carga la configuracion fuentes e inicia la conexion a los servidores
+            
+            Configs.loadLocalConfig(reset);
+             Configs.loadLocalConfig(true);     
             ConnectionServer.initialize(); 
             
             ConnectionServer.conectedProperty().addListener((ov, old, niu) -> {
