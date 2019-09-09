@@ -271,7 +271,7 @@ public class HuellaTeclado extends Screen implements Initializable{
     private void mostrarCamara(){                       
         new Thread ( () -> {
             if (webcam!=null){           
-                webcam.open();
+                webcam.open(disponible);
             }
            
             if (log.isDebugEnabled()) log.debug("iniciando cámara");

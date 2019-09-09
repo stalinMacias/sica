@@ -38,7 +38,7 @@ public class CodigoValidator extends Service<UserData> {
                     //salir de la aplicacion.
                     // #HuellasFrec Finalizador.finalizar();
                     return null;
-                }
+                }               
                 
                 UserData data = Autenticator.getData(u);
                

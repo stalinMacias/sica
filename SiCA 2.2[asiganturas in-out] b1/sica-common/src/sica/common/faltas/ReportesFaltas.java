@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import sica.common.DBQueries;
+import static sica.common.DBQueries.registros;
 import sica.common.Utils;
 import sica.common.horarios.HorarioCrn;
 import sica.common.horarios.HorarioUsuario;
@@ -33,6 +34,9 @@ public class ReportesFaltas {
                 String hastaTxt = Utils.formatDate(hasta);
 
                 ObservableList<FaltasUsuario> faltas = FXCollections.observableArrayList();
+                
+                
+               
                 ObservableList<Registro> registros = DBQueries.getRegistrosPeriodoTipousuarios(desdeTxt,hastaTxt,tipoUsuario.getTipo());
                 ObservableList<Usuario> usuarios = DBQueries.getAlgunosUsuarios(tipoUsuario.getTipo());
                 ObservableList<Evento> eventos = DBQueries.getEventosJornadaFechas(desdeTxt,hastaTxt); 
@@ -310,11 +314,9 @@ public class ReportesFaltas {
                         
                 }
                 ObservableList<Registro> registros = DBQueries.getRegistrosUsuarioPeriodo(usuario.getCodigo(), desdeTxt, hastaTxt);
-
                 ObservableList<Evento> eventos = DBQueries.getEventosAsignaturasFechas(desdeTxt, hastaTxt);
                 ObservableList<JustificanteAsignatura> justifis = DBQueries.getJustificantesAprobadosClases(desdeTxt, hastaTxt);                    
                 ObservableList<JustificantePeriodo> justif = DBQueries.getJustificantesAprobadosPeriodo(desdeTxt,hastaTxt);
-
                 ObservableList<FaltaClase> faltas = FXCollections.observableArrayList();
 
                 for (HorarioCrn h : materias){                    
@@ -332,8 +334,7 @@ public class ReportesFaltas {
                         if (actual.getTime().compareTo(h.getInicioDate()) >=0 && 
                                 actual.getTime().compareTo(h.getFinDate()) <= 0 ){
 
-                            Registro find = 
-                                    Utils.findAndDeleteRegistro(actual.getTime(), h.getHorario(), registros);
+                            Registro find = Utils.findAndDeleteRegistro(actual.getTime(), h.getHorario(), registros);
 
                             if ( find == null && Utils.findEvento(actual.getTime(), eventos) == null){
 

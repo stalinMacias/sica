@@ -32,8 +32,6 @@ public class Main extends Application {
          * -Dcom.sun.javafx.vk.adjustwindow=true
          */
         
-        
-        
         SiCA.initialize(
                 getParameters().getRaw().contains("-debug"),
                 getParameters().getRaw().contains("-reset"));                     
@@ -122,13 +120,18 @@ public class Main extends Application {
                 log.info("Solicitando actualización");
                 Updater.update(true);
 
+            } else if (event.getCode() == KeyCode.P && event.isControlDown()){
+                System.out.println("****************************************");
+                log.info("Resetando configuraciones - propiedasdes");
+                Configs.loadLocalConfig(true);
+
             } else if (event.getCode() == KeyCode.L && event.isControlDown() && event.isShiftDown()){
                 Log.show();
             }
         });           
         
         primaryStage.show(); 
-                
+               
     }   
     /*---------------------------------------------------------------
 ------------------------------mi codigo-------ALAN-----------------------

@@ -109,7 +109,7 @@ public class Bloqueo extends Screen implements Initializable {
     @FXML protected void access(){        
         info.setText("Autentificando...");        
         timer.cancel(); 
-        if (!autenticateTask.isRunning()){
+        if (!autenticateTask.isRunning()){            
             autenticateTask.reset();
             autenticateTask.start();
         }                

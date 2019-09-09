@@ -18,15 +18,10 @@ import sica.common.usuarios.Usuario;
 
 public class Autenticator extends sica.common.Autenticator {
    
-    private final static Logger log = LoggerFactory.getLogger(Autenticator.class);   
-    
+    private final static Logger log = LoggerFactory.getLogger(Autenticator.class);    
         
-    public static Usuario autenticateUserLocalDB(String user, String pass){ 
-        
+    public static Usuario autenticateUserLocalDB(String user, String pass){                
         Usuario usuario = LocalDB.getUsuario(user);
-            
-        //Hasta este punto el codigo ya esta funcionando ---> 02/09/2019
-        
         if (usuario != null && siiauLogin(user, pass)){
             log.info("Usuario autentificado");
             return usuario;
@@ -48,7 +43,12 @@ public class Autenticator extends sica.common.Autenticator {
      * @param u código de usuario
      * @return un UserData con mucha informaicón del usuario.
      */
-    public static UserData getData(Usuario u){ //get data nuevo para 2.02       
+    public static UserData getData(Usuario u){ //get data nuevo para 2.02
+        
+        System.out.println("--------------------------------------------\n\n");
+        System.out.println("(getData) USUARIO : "+u.getNombre());
+        System.out.println("--------------------------------------------\n\n");
+        
         UserData user = new UserData();
         user.setUsuario(u);
         String usr = u.getCodigo();
@@ -57,7 +57,7 @@ public class Autenticator extends sica.common.Autenticator {
          if (ConnectionServer.isConnected()){
              try {           
                 //obtener el tipo de jornada del usuario                  
-                ResultSet rs1 = ConnectionServer.getTipoJornadaUsuario(usr);
+                ResultSet rs1 = ConnectionServer.getTipoJornadaUsuario(usr);                
                 if (rs1!=null && rs1.next()){
                     user.setTipoJornada(rs1.getString("jornada"));
                 } else {
@@ -66,7 +66,7 @@ public class Autenticator extends sica.common.Autenticator {
                 if (rs1!=null) rs1.close();
                 
                 //get horario usuario            
-                ResultSet rs2 = ConnectionServer.getHorarioUsuario(usr);
+                ResultSet rs2 = ConnectionServer.getHorarioUsuario(usr);                
                 
                 if (rs2!= null && rs2.next()){
                     HorarioUsuario h = new HorarioUsuario();
@@ -74,8 +74,8 @@ public class Autenticator extends sica.common.Autenticator {
                     h.setEntrada(rs2.getString("entrada"));
                     h.setSalida(rs2.getString("salida"));
                     h.setDiasig(rs2.getString("diasig"));
-                    user.setHorario(h);
-                }
+                    user.setHorario(h);                    
+                }                
                 if (rs2!=null) rs2.close();
 
                 
@@ -289,8 +289,6 @@ public class Autenticator extends sica.common.Autenticator {
         boolean flag; 
         TipoRegistro tipo = null;
         
-
-        
         //si se tiene conexion a servidor
         if ( ConnectionServer.isConnected() ){            
             
@@ -301,6 +299,10 @@ public class Autenticator extends sica.common.Autenticator {
             flag = saveRegistro(user, tiporegistro); 
             //----------------------------------------------------------------------------------------------------------------------------------------------
             
+            System.out.println("--------------------------------------------\n\n");
+            System.out.println("JORNADA: "+user.getTipoJornada());
+            System.out.println(user.getHorario());
+            System.out.println("--------------------------------------------\n\n");
             // si es distinto de asignatura y tiene horario establecido
             if ( !user.getTipoJornada().equals("sinjornada") && user.getHorario() != null ){ //asignatura -> sinjornada
                 log.info("Usuario con jornada laboral");     
@@ -310,7 +312,7 @@ public class Autenticator extends sica.common.Autenticator {
                     log.info("Registrando entrada");                    
                     tipo = ENTRADA;
                     
-                    if (user.getTipoJornada().equals("obligatoria")){                         
+                    if (user.getTipoJornada().equals("obligatoria")){                        
                         if (!Utils.dentroDeHorarioAdmin(user.getHoraServidor(), user.getHorario().getEntrada()) ){                           
                             log.info("Registro pasado la tolerancia");
                             tipo = ENTRADATARDE;

@@ -19,6 +19,7 @@ public class PHPExecuter {
         
     public PHPExecuter(String consulta){
         this( consulta, "exec.php" );
+        System.out.println("PHPexecuter (saludos desde el constructor)");
     }
     
     @SuppressWarnings("deprecation")

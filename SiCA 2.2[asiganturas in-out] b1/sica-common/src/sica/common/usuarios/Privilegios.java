@@ -5,6 +5,7 @@ public enum Privilegios {
     DIRECTIVO,
     JEFE,
     USUARIO,
+    TECNICOACADEMICO,
     ADMINISTRADORVIEW;
     
     private Privilegios(){
